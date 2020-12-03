@@ -1,0 +1,112 @@
+% \input{uebungsheader.tex}
+
+\usepackage[a4paper, left=2cm, top=2cm, right=2cm, bottom=2cm]{geometry}
+
+\usepackage{multirow}
+\usepackage{fancyvrb}
+
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+
+\newcounter{exerciseCounter}
+\setcounter{exerciseCounter}{0}
+
+\newcommand{\exerciseNumber}{\sheetnumber.\arabic{exerciseCounter}}
+
+\setenumerate{label=\alph*)}
+
+% Sheet Header
+\newcommand{\exercisehead}[3]
+{
+    \def\sheetnumber{#1}
+    \begin{center}
+        \begin{minipage}{0.45\linewidth}
+            \textsc{Universität des Saarlandes}
+            \par
+           Prof. Dr. Dietrich  Klakow
+           \par
+           Lehrstuhl für Signalverarbeitung
+           \par
+           NNIA Winter Term 2019/2020
+        \end{minipage}
+        \begin{minipage}{0.45\linewidth}
+            \begin{flushright}
+               \includegraphics[width=0.30\linewidth]{HW1/lsv_logo.jpg}
+            \end{flushright}
+        \end{minipage}
+        \vspace{5pt}
+        \hrule
+        \vspace{12pt}
+        \doublespacing
+        {
+            \LARGE
+            \textbf{Exercise Sheet #1}
+        }
+        \par
+        {
+            \large
+            #2
+        }
+        \par
+        \ifdefined\issolution
+        \textit{(Solutions)}
+        \else
+        \fi
+    \author[]{\\ \footnotesize 
+            Bernadeta Griciūtė (7007672), 
+            Zena Al Khalili (7009151),
+            Sangeet Sagar (7009050)
+            }\\ % authorname
+    \textbf{Deadline: #3}
+    \end{center}
+
+    \vspace{2pt}
+    \hrule
+    \vspace{12pt}
+}
+
+% Exercise environment
+\NewDocumentEnvironment{exercise}{oo}
+{
+	\refstepcounter{exerciseCounter}
+	\par
+	\vspace{12pt}
+    \noindent
+    \textbf{Exercise \exerciseNumber \  - #1}\IfNoValueF{#2}{\hfill(#2 points)}
+	\vspace{12pt}
+	\par
+	\begin{addmargin}[12pt]{0pt}
+
+
+    
+	\end{addmargin}
+	\par
+	\vspace{12pt}
+}
+
+% Solution environment
+\newenvironment{solution}
+{
+		\ifthenelse{\isundefined{\issolution}}
+		{
+			\comment
+		}
+		{
+			\par
+			\color{gray}
+			\vspace{6pt}
+			\textit{Solution \exerciseNumber}
+			\par
+			\begin{addmargin}[30pt]{0pt}
+		}
+}
+{
+		\ifthenelse{\isundefined{\issolution}}
+		{
+		}
+		{
+			\end{addmargin}
+			\par
+			\vspace{12pt}
+		}
+}
+
