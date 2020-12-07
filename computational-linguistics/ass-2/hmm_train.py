@@ -1,18 +1,25 @@
 import pdb
-from nltk.corpus.reader.knbc import test
-import numpy as np
-import nltk
-from nltk.corpus.reader import TaggedCorpusReader
-import collections
-import pandas as pd
 import time
+import nltk
+import collections
+import numpy as np
+import pandas as pd
+from viterbi import viterbi
+from nltk.corpus.reader import TaggedCorpusReader
 
-np.set_printoptions(formatter={'float': "{: 7.4f}".format})
+# np.set_printoptions(formatter={'float': "{: 7.4f}".format})
 
 def create_ngram(n, tok_list):
     # Given a list and the ngram order, return ngrams
     
     return [tok_list[i:i+ n] for i in range(len(tok_list)-n+1)]
+
+def comp_initial(tags, treebank):
+    parsed_sents = treebank.paras()
+    f_tags = [line[0][1] for line in parsed_sents]
+    freq_f_tags = collections.Counter(f_tags)
+    init_p = [freq_f_tags[item]/len(f_tags) for item in list(tags)]
+    return list(zip(list(tags), init_p))
 
 def comp_transition(n, tags, state_space):
     
@@ -37,7 +44,8 @@ def comp_transition(n, tags, state_space):
         
     return trans_p
 
-def comp_emission(words, tags, state_space, treebank):
+
+def comp_emission(words, tags, state_space, treebank, smoothing=None):
     N = len(words)
     K = len(tags)
     emission_p = np.zeros(shape=(K,N))
@@ -51,81 +59,21 @@ def comp_emission(words, tags, state_space, treebank):
             w1 = list(words)[col]
             C_t1_w1 = frq_word_tags[(w1, t1)]
             C_t1 = frq_tags[t1]
-            emission_p[row, col] = C_t1_w1 / C_t1
+            if smoothing == 'Laplace':
+                emission_p[row, col] = (C_t1_w1 + 1)/ (C_t1 + N)
+            else:
+                emission_p[row, col] = (C_t1_w1 / C_t1) # 0 can be added to leave no probs 0
     
     return emission_p
 
-def viterbi(O,S,Y, pi, A, B):
-    start = time.time()
-    # O = np.arange(1,7) # observation space # all words # Size = 1 X N
-    # S = np.asarray([0, 1, 2]) # State space # all POS tags # Size = 1 X K
 
-    # Y = np.array([0, 2, 0, 2, 2, 1]).astype(np.int32) # Observation sequnece T # A sent that needs POS tags predictions 
-    # # Size = 1 X T
-
-    # pi = np.array([0.6, 0.2, 0.2]) # Initial probablity # Size = 1 X K
-
-    # A = np.array([[0.8, 0.1, 0.1], 
-    #             [0.2, 0.7, 0.1], 
-    #             [0.1, 0.3, 0.6]]) # transition matrix # Size = K X K
-    # B = np.array([[0.7, 0.0, 0.3], 
-    #             [0.1, 0.9, 0.0], 
-    #             [0.0, 0.2, 0.8]]) # emission matrix # Size = N X K
-    # print("O",O)
-    # print("S",S)
-    # print("pi",pi)
-    # print("Y",Y)
-    # print("A",A,'\n')
-    # print("B",B)
-
-    N = len(O)
-    K = len(S)
-    T = len(Y)
-    
-    T1 = np.zeros(shape=(K,T))
-    T2 = np.zeros(shape=(K,T))
-    for i in range(K):
-        T1[i,0] = pi[i] * B[i, Y[0]] # or 0 = i-1
-        T2[i,0] = 0
-        
-    for j in range(1, T):    
-        for i in range(K):
-    #         print(j, i)
-    #         print(B[i, Y[j]])
-            if Y[j] == -1:
-                # Unkown word handling. Set B[i, Y[j]] = 1 for all tags if Y[j] == -1 aka word not found in train set.
-                next_prob = T1[:,j-1] * A[:, i] * 1
-            else:    
-                next_prob = T1[:,j-1] * A[:, i] * B[i, Y[j]]
-            T1[i,j] = np.max(next_prob)
-            T2[i,j] = np.argmax(next_prob)
-    #         print(T1,'\n')
-        
-    # import pdb; pdb.set_trace()
-    Z = [None] * T
-    X = [None] * T
-
-    # Backpointer
-    Z[T-1] = np.argmax(T1[:,T-1])
-    X[T-1] = S[Z[T-1]]
-
-    for j in reversed(range(1, T)):
-        Z[j-1] = T2[int(Z[j]),j]
-        X[j-1] = S[int(Z[j-1])]
-    print('***************')
-    end = time.time()
-    print("Viterbi run time: %.3f" %(end-start))
-    
-    return X
-
-def pre_process(words, tags, test_tagged_words, init_p, trans_p, emission_p, word_tag_pairs):
-            #   O       S       Y                   pi      A       B
-    O = np.arange(1,len(words))
+def post_process(words, tags, test_tagged_words, init_p, trans_p, emission_p, word_tag_pairs):
+                #   O     S       Y                 pi      A       B
+    O = np.arange(0,len(words))
     S = np.asarray(list(tags))
     
     # Y = [list(words).index(item) for item in test_tagged_words]
     Y = []
-    
     for item in test_tagged_words:
         # Unknown word handling. If test word in not found in train set, represent it by -1.
         # Later, when iterating through this index we set B[i, Y[j]] = 1 for all tags.
@@ -137,21 +85,26 @@ def pre_process(words, tags, test_tagged_words, init_p, trans_p, emission_p, wor
     pi = init_p
     A = trans_p
     B = emission_p
-    # print("O",O)
-    # print("S",S)
-    # print("Y",Y)
-    # print("Word tag pairs", word_tag_pairs)
-    # print("pi",pi)
-    # print("A",A,'\n')
-    # print("B",B)
     X = viterbi(O,S,Y, pi, A, B)
-    # print(X)
-    # print(word_tag_pairs)
     
     
     viterbi_tagged_pairs = list(zip(test_tagged_words, X))
-    print(viterbi_tagged_pairs[:],'\n')
-    print(word_tag_pairs[:],'\n')
+    print("HMM-viterbi tagged pairs\n", viterbi_tagged_pairs[:20],'\n')
+    
+    with open('my_test.tt') as ifh, open('tagger.tt', 'w') as ofh:
+        i = 0
+        for line in ifh:
+            word = line.rstrip()                 # remove newline
+            if not word.strip():
+                # Empty line detected. Insert a blank line to identify a new sentence.
+                ofh.write('\n')
+            else:
+                tag = list(viterbi_tagged_pairs[i])[1]         
+                ofh.write(word+"\t"+tag+'\n')  # write line
+                i += 1
+
+    
+    print("Ground truth\n",word_tag_pairs[:20],'\n')
     print(len(viterbi_tagged_pairs), len(word_tag_pairs))
     check = [i for i, j in zip(viterbi_tagged_pairs, word_tag_pairs) if i == j] 
     accuracy = len(check)/len(viterbi_tagged_pairs)
@@ -160,58 +113,51 @@ def pre_process(words, tags, test_tagged_words, init_p, trans_p, emission_p, wor
     
 n = 2 # Bi-gram HMM
 corpus_path = '.'
-corpus_files = 'de-eval.tt'
-# corpus_files = 'test.txt'
+# corpus_files = 'de-train.tt'
+corpus_files = 'my_train.tt'
 treebank = TaggedCorpusReader(corpus_path, corpus_files)
 
 observation_space = [item[0] for item in treebank.sents()] # all words
 state_space = [item[1] for item in treebank.sents()] # all pos tags
 
 # get unique words and tags
-words = set(observation_space)
-tags = set(state_space)
+words = dict.fromkeys(observation_space)
+tags = dict.fromkeys(state_space)
 
+# Transition probablity matrix
 start = time.time()
 trans_p = comp_transition(n, tags, state_space)
 tags_df = pd.DataFrame(trans_p, columns = list(tags), index=list(tags))
 # print(tags_df)
-
 end = time.time()
 difference = end-start
-print("Time taken in seconds: ", difference)
+print("Runtime (transition matrix): ", difference)
 
+# Initial probablity
+init_p = [item[1] for item in comp_initial(tags, treebank)]
+# print(init_p)
+
+# Emission probablity matrix- expensive runtime
 start = time.time()
-emission_p = comp_emission(words, tags, state_space, treebank)
+emission_p = comp_emission(words, tags, state_space, treebank, smoothing=None)
 end = time.time()
 difference = end-start
-print(emission_p.nbytes)
+# print(emission_p.nbytes)
 tags_df = pd.DataFrame(emission_p, columns = list(words), index=list(tags))
 # print(tags_df)
-print("Time taken in seconds: ", difference)
 
-# print(tagged_sents,'\n')
-# print(word_tag_pairs,'\n')
+print("Runtime (emission matrix): ", difference)
 
-
-
+# Test your HMM-trained model
 corpus_path = '.'
-corpus_files = 'test.txt'
+# corpus_files = 'de-eval.tt'
+corpus_files = 'my_eval.tt'
 treebank = TaggedCorpusReader(corpus_path, corpus_files)
 
 test_words = [item[0] for item in treebank.sents()]
-# test_tags = [item[1] for item in treebank.sents()] # all pos tags
-
 test_word_tag_pairs = [tuple(item) for item in treebank.sents()] # Ground truth
 
-
-# test_tagged_words = observation_space
-# print(test_tagged_words)
-
-# word_tag_pairs = word_tag_pairs[:50]
-init_p = np.ones(shape=(len(test_words))) * 0.5
-# print(init_p)
-# print(words)
-X = pre_process(words, tags, test_words, init_p, trans_p, emission_p, test_word_tag_pairs)
-
-
-
+# Performs
+    # computes Viterbi's most likely tags
+    # perform some post processing i.e. appending Tags to the test file in CoNNL format.
+X = post_process(words, tags, test_words, init_p, trans_p, emission_p, test_word_tag_pairs) 
