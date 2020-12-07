@@ -12,10 +12,19 @@ This assignment implements a bigram Hidden Markov Models (HMM) based parts-of-sp
 ### Project file structure
 
 ```
-- utils.py
-- viterbi.py
-- hmm_train.py
-- eval.py
+├── utils.py
+├── viterbi.py
+├── hmm_train.py
+├── eval.py
+├── data
+│   ├── de-eval.tt
+│   ├── de-test.t
+│   └── de-train.tt
+├── results
+│   ├── de-tagger_base.tt
+│   ├── de-tagger_laplace.tt
+│   └── de-tagger_log.tt
+
 ```
 
 ### Usage
@@ -46,6 +55,8 @@ Runtime (viterbi): 0.024 s
 
 ### Results
 
+The best results below were obtained without using any smoothing techniques or other optional parameters. The HMM-viterbi predicted POS tagged files that produced the below results can be found in `results`
+
 | **POS tag** | **Precision** | **Recall** | **F1-score** |
 | :---------: | :-----------: | :--------: | :----------: |
 |     DET     |    0.8115     |   0.9761   |    0.8862    |
@@ -62,3 +73,10 @@ Runtime (viterbi): 0.024 s
 |      X      |    0.2222     |   0.0909   |    0.1290    |
 
 **Accuracy**: 90.89
+
+Results with laplace smoothing technique and Viterbi algo that uses log probablities:
+
+|         \*\*\*\*         | **Accracy** |
+| :----------------------: | :---------: |
+|    Laplace smoothing     |    86.28    |
+| Viterbi log probablities |    86.86    |
