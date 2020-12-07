@@ -53,7 +53,6 @@ def comp_transition(n, tags, state_space):
         [numpy.ndarray]: 2D array of transition probablities. Size= K X K
     """
 
-    start = time.time()
     K = len(tags)
     ngram_state_space = create_ngram(n, state_space)
     trans_p = np.zeros(shape=(K, K))
@@ -70,8 +69,6 @@ def comp_transition(n, tags, state_space):
                     C_t1_t2 += 1
             trans_p[row, col] = C_t1_t2 / C_t1
     
-    end = time.time()
-    print("Runtime (transition prob): %.3f s" %(end-start))
     return trans_p
 
 
@@ -88,7 +85,7 @@ def comp_emission(words, tags, state_space, treebank, smoothing=None):
     Returns:
         [numpy.ndarray]: 2D array of emission probablities. Size= N X K
     """
-    start = time.time()
+
     N = len(words)
     K = len(tags)
     emission_p = np.zeros(shape=(K,N))
@@ -106,8 +103,6 @@ def comp_emission(words, tags, state_space, treebank, smoothing=None):
                 emission_p[row, col] = (C_t1_w1 + 1)/ (C_t1 + N)
             else:
                 emission_p[row, col] = (C_t1_w1 / C_t1)
-    end = time.time()
-    print("Runtime (emission prob): %.3f s" %(end-start))
     return emission_p
 
 

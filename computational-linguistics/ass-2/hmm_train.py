@@ -32,11 +32,13 @@ def main():
     tags = dict.fromkeys(state_space)
 
     # HMM parameter estimation- initial, transition and emission probablity
+    start = time.time()
     init_p = [item[1] for item in comp_initial(tags, treebank)]
     trans_p = comp_transition(n, tags, state_space)
     emission_p = comp_emission(
         words, tags, state_space, treebank, smoothing=args.smoothing)
-
+    end = time.time()
+    print("Runtime (training): %.3f s" %(end-start))
 
     # Test your HMM-trained model
     treebank = TaggedCorpusReader(os.path.split(args.eval_f)[0],
@@ -54,7 +56,8 @@ def main():
     end = time.time()
     
     print("Runtime (viterbi): %.3f s" % (end - start))
-    post_processing(viterbi_tags, args.test_f, args.tagger_f)
+    output_path = "./" + "de-tagger.tt"
+    post_processing(viterbi_tags, args.test_f, output_path)
 
 
 def parse_arguments():
@@ -64,8 +67,6 @@ def parse_arguments():
     parser.add_argument("train_f", help="path to train corpora")
     parser.add_argument("eval_f", help="path to eval file")
     parser.add_argument("test_f", help="path to test file")
-    parser.add_argument("tagger_f", help="output path to save \
-                        HMM-viterbi POS tagged file")
     parser.add_argument("-smoothing",default=None,choices=['Laplace'], \
                         type=str,help='Smoothing techniques')
     args = parser.parse_args()
