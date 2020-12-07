@@ -10,7 +10,7 @@ import os
 import time
 import argparse
 from utils import *
-from viterbi import viterbi
+from viterbi import *
 from nltk.corpus.reader import TaggedCorpusReader
 
 """
@@ -51,7 +51,11 @@ def main():
         O, S, Y, pi, A, B = pre_process(
             words, tags, test_words, init_p, trans_p, emission_p)
         # Computes Viterbi's most likely tags
-        X = viterbi(O, S, Y, pi, A, B)
+        
+        if args.log_prob:
+            X = viterbi_log(O, S, Y, pi, A, B)
+        else:
+            X = viterbi(O, S, Y, pi, A, B)    
         viterbi_tags.append(X)
     end = time.time()
     
@@ -69,6 +73,8 @@ def parse_arguments():
     parser.add_argument("test_f", help="path to test file")
     parser.add_argument("-smoothing",default=None,choices=['Laplace'], \
                         type=str,help='Smoothing techniques')
+    parser.add_argument("-log_prob",default=None,choices=['log'], \
+                        type=str,help='Viterbi Algorithm using log probabilities')
     args = parser.parse_args()
     return args
 

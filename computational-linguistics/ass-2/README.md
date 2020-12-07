@@ -22,7 +22,7 @@ This assignment implements a bigram Hidden Markov Models (HMM) based parts-of-sp
 
 - **Help**: for help
   ```
-  python hmm_train.py
+  python hmm_train.py --help
   ```
 - **Training**: following script fits HMM on the given data and predicts POS tags of words given in the test set.
 
