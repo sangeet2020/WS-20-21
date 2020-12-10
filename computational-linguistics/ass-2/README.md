@@ -50,7 +50,7 @@ This assignment implements a bigram Hidden Markov Models (HMM) based parts-of-sp
 
 ```
 Runtime (training): 208.369 s
-Runtime (viterbi): 0.024 s
+Runtime (viterbi): 14.566 ss
 ```
 
 ### Results

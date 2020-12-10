@@ -45,8 +45,8 @@ def main():
                                   os.path.split(args.eval_f)[1])
     viterbi_tags = []
 
+    start = time.time()
     for sentence in treebank.paras():
-        start = time.time()
         test_words = [item[0] for item in sentence]
         O, S, Y, pi, A, B = pre_process(
             words, tags, test_words, init_p, trans_p, emission_p)
