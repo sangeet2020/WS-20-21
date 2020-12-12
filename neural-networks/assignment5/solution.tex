@@ -1,0 +1,101 @@
+\def\pathToRoot{../../}
+\input{\pathToRoot/headers/uebungsheader.tex}
+
+\def\issolution{}
+
+\begin{document}
+
+% {Sheet number}{headline}{deadline}
+\exercisehead{5}{}{15.12.2020, 23:59}
+
+\section*{Instructions}
+Submit the jupyter notebook with the solution for exercise 5.2 b) in an archive along with the latex file.
+
+
+\section*{Exercises}
+
+\begin{exercise}[Computing Jacobian and Hessian][1 + 1 = 2]
+
+Let $f(x,y) = 3x^2 y + 4x^3 y^4 - 7x^9 y^4$. Compute Jacobian and Hessian matrices of $f$.
+\end{exercise}
+
+
+\begin{solution}
+   % write the solution here
+\end{solution}
+
+
+\begin{exercise}[Taylor Series and Newton's Method][1 + 2 + 1 + 1 = 5]
+
+    \begin{enumerate}
+    \item Derive the first 5 terms of the Taylor series about $x_0 = 0$ for $f(x) = cos(x)$, and write the series in sigma notation (e.g. as an infinite sum).
+    
+    \item In python, apply Newton's method to find the nearest critical point of \\
+    \begin{center} $f(x, y) = x^2 - y^2 + 4 - 3xy$\\
+    from the initial point $x_0 = -0.3, y_0 = 0.3$.\\ \end{center}
+    After each iteration, check the value of the first derivative, i.e. Jacobian: if Jacobian is 0, then we reached the critical point.\\
+    Plot the original function for x and y in range from -0.5 to 0.5 with step size of 0.01, along with the initial point and the points computed after each iteration.
+    Use method \href{https://matplotlib.org/3.1.0/gallery/mplot3d/surface3d.html}{.surface\_plot()} with parameter $alpha=0.3$ for plotting the function and \href{https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html}{.scatter()} for plotting the points. \\
+	What kind of problem of function minimization task is illustrated with this example?
+    
+    \item How is Newton’s Method related to gradient descent?
+    
+	\item In which case is it impossible to apply Newton's method? Hint: look at the multidimensional generalization of the formula.
+	
+	
+    
+  \end{enumerate}
+    
+\end{exercise}
+
+
+\begin{solution}
+   % write the solution here
+\end{solution}
+
+
+\begin{exercise}[Activation Functions][1.5 + 1 + 0.5 = 3]
+
+    \begin{enumerate}
+    \item Three of the most commonly-used activation functions are the sigmoid function, hyperbolic tangent, and ReLU.  The equations for these are given below.  Compute the first derivative of each function.  Note that your final derivative for tanh should not be written in terms of other hyperbolic functions, though you may use these in your calculation. Hint: ReLU is not differentiable at x = 0.  For the purposes of your derivative, you may define its derivative piecewise, ignoring this point.
+    \[\sigma(x) = \frac{1}{1+e^{-x}}\,\,\,\,\,\tanh(x) = \frac{e^{2x} - 1}{e^{2x} + 1}\]
+    \[ReLU(x) =   \left\{
+\begin{array}{ll}
+      0 & x < 0 \\
+      x & x > 0 \\
+\end{array} 
+\right. \]
+    
+    \item Using an online resource like Wolfram Alpha or Desmos, graph each function along with its derivative.  Discuss the differences you observe.  What are the advantages and disadvantages of each?  In particular, think about how the range of the function and the amplitude of the derivative would affect a network.
+    
+    \item Which activation function would be most appropriate for a classification problem when there are only two classes?  Would adding more classes change your choice?  Why or why not?
+  \end{enumerate}
+    
+\end{exercise}
+
+
+\begin{solution}
+   % write the solution here
+\end{solution}
+
+
+
+\section*{Submission instructions}
+
+\framebox{
+	\begin{minipage}{\linewidth}
+		The following instructions are mandatory. If you are not following them, tutors can
+		decide to not correct your exercise.
+	\end{minipage}
+}
+
+\begin{itemize}
+    \item You have to submit the solutions of this assignment sheet as a team of 2-3 students.
+    \item  Hand in a \textbf{single} PDF file with your solutions.
+    \item Make sure to write the student teams ID and the name of each
+    member of your team on your submission.
+    \item Your assignment solution must be uploaded by only \textbf{one} of your team members to the course website.
+    \item If you have any trouble with the submission, contact your tutor \textbf{before} the deadline.
+\end{itemize}
+
+\end{document}
