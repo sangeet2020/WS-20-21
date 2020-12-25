@@ -1,0 +1,235 @@
+Expected runtime: 20 s
++-------+------------------------------------------------------------------------+-------+------------+
+| S.No. |                             test sentence                              |  CFG  | parse tree |
+|       |                                                                        |       |   counts   |
++=======+========================================================================+=======+============+
+| 1     | prices .                                                               | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 2     | show availability .                                                    | True  | 3          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 3     | show the flights .                                                     | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 4     | milwaukee to detroit .                                                 | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 5     | indianapolis to seattle .                                              | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 6     | list round trips .                                                     | True  | 11         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 7     | list saturday flights .                                                | True  | 5          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 8     | what aircraft is this .                                                | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 9     | list these economy fares .                                             | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 10    | list these city destinations .                                         | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 11    | what is the fare .                                                     | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 12    | which flights are cheapest .                                           | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 13    | list flights from cleveland .                                          | True  | 5          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 14    | what are the costs .                                                   | True  | 4          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 15    | can i have the fare .                                                  | True  | 1          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 16    | what is e w r .                                                        | True  | 1          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 17    | oakland to salt lake city .                                            | True  | 19         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 18    | show me northwest flights to detroit .                                 | True  | 17         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 19    | i want to leave before noon .                                          | True  | 1          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 20    | what flights leave boston to pittsburgh .                              | True  | 3          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 21    | i 'd like an afternoon flight .                                        | True  | 9          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 22    | are any fares cheaper than these .                                     | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 23    | what is the flying time from .                                         | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 24    | which flights use a large plane .                                      | True  | 17         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 25    | what area does canadian airlines international service .               | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 26    | what flights leave las vegas to oakland .                              | True  | 3          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 27    | show me the airlines and flight numbers .                              | True  | 10         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 28    | what airlines fly from toronto to detroit .                            | True  | 6          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 29    | which city is cheapest to fly into .                                   | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 30    | does delta fly to boston from denver .                                 | True  | 22         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 31    | what is the duration of this flight .                                  | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 32    | what flights leave los angeles arriving in minneapolis .               | True  | 10         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 33    | i can only spend a hundred fifty dollars .                             | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 34    | i 'd like to leave on a saturday .                                     | True  | 13         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 35    | orlando to kansas city and then to minneapolis .                       | True  | 46         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 36    | is there a flight from memphis to los angeles .                        | True  | 18         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 37    | what if i wanted to leave on may fifth .                               | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 38    | list u s air flights from dallas to boston .                           | True  | 597        |
++-------+------------------------------------------------------------------------+-------+------------+
+| 39    | i need a flight from philadelphia to westchester county .              | True  | 21         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 40    | what is the cheapest ticket from memphis to miami .                    | True  | 5          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 41    | find a flight from washington d c to milwaukee .                       | True  | 200        |
++-------+------------------------------------------------------------------------+-------+------------+
+| 42    | find a flight from washington d c to montreal .                        | True  | 200        |
++-------+------------------------------------------------------------------------+-------+------------+
+| 43    | show american flights after twelve p.m. from miami to chicago .        | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 44    | how far is it from the airport to the city .                           | True  | 1          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 45    | list those flights that stop over in salt lake city .                  | True  | 11         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 46    | i want first class on flight one one one nine .                        | True  | 15         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 47    | please show me all flights from montreal to las vegas .                | True  | 9          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 48    | i need the shortest evening flight from tampa to cincinnati .          | True  | 32         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 49    | how much is the fare limousine san francisco to downtown .             | True  | 8          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 50    | i need a flight from pittsburgh to newark on monday .                  | True  | 136        |
++-------+------------------------------------------------------------------------+-------+------------+
+| 51    | what meals are served on flight h p five four .                        | True  | 10         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 52    | i 'll be leaving on a friday at four o'clock .                         | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 53    | i 'd like to leave before eight o'clock at night .                     | True  | 5          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 54    | please tell me the round trip cost for these flights .                 | True  | 72         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 55    | i would like a flight from orlando to kansas city .                    | True  | 85         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 56    | what is the cheapest one way flight from columbus to indianapolis .    | True  | 50         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 57    | count the number of flights between nine a.m. and twelve noon .        | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 58    | i need a flight from los angeles to minneapolis thursday afternoon .   | True  | 295        |
++-------+------------------------------------------------------------------------+-------+------------+
+| 59    | please list flights departing from toronto canada to washington on     | True  | 354        |
+|       | saturday .                                                             |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 60    | please list costs of round trip fares from denver to atlanta .         | True  | 229        |
++-------+------------------------------------------------------------------------+-------+------------+
+| 61    | please give me a one way flight from washington to cincinnati .        | True  | 106        |
++-------+------------------------------------------------------------------------+-------+------------+
+| 62    | does united flight four seven four slash fourteen eighty four serve    | False | 0          |
+|       | dinner .                                                               |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 63    | show me flights from detroit to san diego on tuesday may third .       | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 64    | i would like to find a flight from charlotte to las vegas .            | True  | 55         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 65    | the flight going to san diego from toronto should stop in denver .     | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 66    | show me flights from chicago to kansas city leaving around seven p.m.  | True  | 1059       |
+|       | thursday .                                                             |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 67    | can you tell me about the flights from saint petersburg to toronto     | True  | 3          |
+|       | again .                                                                |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 68    | i would like to leave on thursday morning may fifth before six a.m .   | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 69    | i need a first class round trip airfare from detroit to saint          | True  | 6153       |
+|       | petersburg .                                                           |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 70    | how far is the airport from new york 's la guardia to downtown .       | True  | 7          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 71    | i 'd like to fly from buffalo to either orlando or long beach .        | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 72    | please list all flights from pittsburgh to toronto on nationair and    | True  | 437        |
+|       | canadian airlines international .                                      |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 73    | how long is the stop in dallas on flight d l nine thirty one .         | True  | 6          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 74    | please show me all first class flights from pittsburgh to newark on    | True  | 598        |
+|       | monday morning .                                                       |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 75    | please show me all first class flights from indianapolis to memphis    | True  | 569        |
+|       | leaving monday morning .                                               |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 76    | please show me all flights from ontario to salt lake city leaving      | True  | 1010       |
+|       | monday morning .                                                       |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 77    | i need an american airlines flight number from chicago to philadelphia | True  | 1645       |
+|       | departing six p.m .                                                    |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 78    | for american airlines i need round trip airfare from new york to san   | True  | 7          |
+|       | diego .                                                                |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 79    | how much does a first class round trip ticket from detroit to saint    | True  | 28250      |
+|       | petersburg cost .                                                      |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 80    | what flights departing montreal have less than one hundred and fifty   | True  | 293        |
+|       | dollars round trip fare .                                              |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 81    | i need a flight from charlotte to las vegas that makes a stop in saint | True  | 2085       |
+|       | louis .                                                                |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 82    | please show me the flights from chicago to detroit that arrive at six  | True  | 20         |
+|       | p.m. next tuesday .                                                    |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 83    | what flights are available between chicago and indianapolis next       | False | 0          |
+|       | wednesday between eleven a.m. and one p.m .                            |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 84    | how many flights leave from lester b pearson international airport     | False | 0          |
+|       | between nine a.m. and twelve noon .                                    |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 85    | how many times a day can i fly from boston to pittsburgh to newark to  | False | 0          |
+|       | boston .                                                               |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 86    | what flights do you have available on march twenty fourth leaving      | False | 0          |
+|       | minneapolis arriving in seattle by .                                   |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 87    | how much does flight number a nineteen cost from new york to los       | True  | 8913       |
+|       | angeles on monday morning .                                            |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 88    | i 'd like to fly out of chicago for less than a hundred fifty dollars  | False | 0          |
+|       | round trip .                                                           |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 89    | what type of aircraft is used on a flight from cleveland to dallas     | True  | 24         |
+|       | that leaves before noon .                                              |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 90    | what kind of aircraft is american 's flight fifteen oh one that        | False | 0          |
+|       | departs at six fifty nine p.m .                                        |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 91    | how much does first class on that flight cost and how much does coach  | True  | 54         |
+|       | on that flight cost .                                                  |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 92    | please book a one way coach fare from chicago to indianapolis on       | False | 0          |
+|       | united flight two ninety two next wednesday .                          |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 93    | please give me the number of flights that depart from lester b pearson | False | 0          |
+|       | international airport on april twenty fifth .                          |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 94    | please list the flights leaving newark stopping over in seattle for    | True  | 44         |
+|       | approximately five hours and then on to san francisco .                |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 95    | i 'd like the cheapest round trip ticket from minneapolis to san diego | True  | 36122      |
+|       | arriving in san diego before seven p.m .                               |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 96    | what is the cheapest first class ticket available flying from new york | True  | 716        |
+|       | to miami one way but also round trip .                                 |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 97    | what is the cheapest one way flight from phoenix to san diego that     | True  | 1380       |
+|       | arrives in the morning on thursday june second .                       |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 98    | i 'd like to fly from indianapolis to houston on t w a and the plane   | False | 0          |
+|       | should arrive around eleven a.m .                                      |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+Total runtime: 20.514 s
+CYK parser runtime: 17.765 s
+Backpointer runtime: 0.015159 s

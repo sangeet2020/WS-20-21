@@ -1,0 +1,328 @@
+Expected runtime: 20 s
+( 0 ) prices . 
+
+Given sentence is in the language of CFG
+
+            SIGMA               
+   ┌──────────┴───────────┐         
+NOUN_NNS             pt_char_per
+   │                      │         
+ prices                   .     
+
+            SIGMA               
+   ┌──────────┴───────────┐         
+VERB_VBZ             pt_char_per
+   │                      │         
+ prices                   .     
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 1 ) show availability . 
+
+Given sentence is in the language of CFG
+
+              SIGMA                          
+   ┌────────────┴───────────┐                    
+   │                       JWB               
+   │            ┌───────────┴──────────┐         
+NOUN_NN      AVPNP_NN             pt_char_per
+   │            │                      │         
+  show     availability                .     
+
+            SIGMA                          
+  ┌───────────┴───────────┐                    
+  │                      JXI               
+  │           ┌───────────┴──────────┐         
+NP_NN      NOUN_NN              pt_char_per
+  │           │                      │         
+ show    availability                .     
+
+              SIGMA                          
+   ┌────────────┴───────────┐                    
+   │                       JKA               
+   │            ┌───────────┴──────────┐         
+VERB_VB       NP_NN               pt_char_per
+   │            │                      │         
+  show     availability                .     
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 2 ) show the flights . 
+
+Given sentence is in the language of CFG
+
+                     SIGMA                            
+   ┌───────────────────┴──────────┐                       
+   │                             JKB                  
+   │                   ┌──────────┴─────────────┐         
+   │                 NP_NNS                     │     
+   │         ┌─────────┴──────────┐             │         
+VERB_VB    AVP_RB              NOUN_NNS    pt_char_per
+   │         │                    │             │         
+  show      the                flights          .     
+
+                     SIGMA                            
+   ┌───────────────────┴──────────┐                       
+   │                             JKB                  
+   │                   ┌──────────┴─────────────┐         
+   │                 NP_NNS                     │     
+   │         ┌─────────┴──────────┐             │         
+VERB_VB    ADJ_AT              NOUN_NNS    pt_char_per
+   │         │                    │             │         
+  show      the                flights          .     
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 3 ) milwaukee to detroit . 
+
+Given sentence is in the language of CFG
+
+                        SIGMA                          
+    ┌─────────────────────┴─────────┐                      
+    │                              KEX                 
+    │                     ┌─────────┴────────────┐         
+    │                   PP_NP                    │     
+    │           ┌─────────┴─────────┐            │         
+ NOUN_NP     PREP_IN             NOUN_NP    pt_char_per
+    │           │                   │            │         
+milwaukee       to               detroit         .     
+
+                                 SIGMA                                 
+               ┌───────────────────┴──────────────────┐                    
+             NP_NP                                   KFD               
+    ┌──────────┴─────────┐                   ┌────────┴──────────┐         
+ NOUN_NP              PREP_IN             NOUN_NP           pt_char_per
+    │                    │                   │                   │         
+milwaukee                to               detroit                .     
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 4 ) indianapolis to seattle . 
+
+Given sentence is in the language of CFG
+
+                           SIGMA                          
+     ┌───────────────────────┴─────────┐                      
+     │                                KEX                 
+     │                       ┌─────────┴────────────┐         
+     │                     PP_NP                    │     
+     │             ┌─────────┴─────────┐            │         
+  NOUN_NP       PREP_IN             NOUN_NP    pt_char_per
+     │             │                   │            │         
+indianapolis       to               seattle         .     
+
+                                    SIGMA                                 
+                  ┌───────────────────┴──────────────────┐                    
+                NP_NP                                   KFD               
+     ┌────────────┴─────────┐                   ┌────────┴──────────┐         
+  NOUN_NP                PREP_IN             NOUN_NP           pt_char_per
+     │                      │                   │                   │         
+indianapolis                to               seattle                .     
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 5 ) list round trips . 
+
+Given sentence is in the language of CFG
+
+                      SIGMA                            
+   ┌────────────────────┴──────────┐                       
+   │                              JWL                  
+   │                    ┌──────────┴─────────────┐         
+   │                  PP_NNS                     │     
+   │          ┌─────────┴──────────┐             │         
+NOUN_NN    PREP_IN              NOUN_NNS    pt_char_per
+   │          │                    │             │         
+  list      round                trips           .     
+
+                      SIGMA                             
+   ┌────────────────────┴───────────┐                       
+   │                               JWS                  
+   │                    ┌───────────┴─────────────┐         
+   │                RELCL_VBZ                     │     
+   │         ┌──────────┴───────────┐             │         
+NOUN_NN    NP_NN                 VERB_VBZ    pt_char_per
+   │         │                      │             │         
+  list     round                  trips           .     
+
+                  SIGMA                                  
+  ┌─────────────────┴─────────┐                              
+  │                          HYG                         
+  │        ┌──────────────────┴─────────┐                    
+  │        │                           HYH               
+  │        │                  ┌─────────┴──────────┐         
+NP_NN    NP_NN             NOUN_NNS           pt_char_per
+  │        │                  │                    │         
+ list    round              trips                  .     
+
+                    SIGMA                                
+  ┌───────────────────┴────────┐                             
+  │                           GLG                        
+  │         ┌──────────────────┴────────┐                    
+  │         │                          GLH               
+  │         │                  ┌────────┴──────────┐         
+NP_NN    VERB_VB             NP_NNS           pt_char_per
+  │         │                  │                   │         
+ list     round              trips                 .     
+
+                      SIGMA                            
+   ┌────────────────────┴──────────┐                       
+   │                              JKK                  
+   │                    ┌──────────┴─────────────┐         
+   │                  PP_NNS                     │     
+   │          ┌─────────┴──────────┐             │         
+VERB_VB    PREP_IN              NOUN_NNS    pt_char_per
+   │          │                    │             │         
+  list      round                trips           .     
+
+                    SIGMA                            
+   ┌──────────────────┴──────────┐                       
+   │                            JKB                  
+   │                  ┌──────────┴─────────────┐         
+   │                NP_NNS                     │     
+   │         ┌────────┴──────────┐             │         
+VERB_VB    NP_NN              NOUN_NNS    pt_char_per
+   │         │                   │             │         
+  list     round               trips           .     
+
+                     SIGMA                            
+   ┌───────────────────┴──────────┐                       
+   │                             JKB                  
+   │                   ┌──────────┴─────────────┐         
+   │                 NP_NNS                     │     
+   │         ┌─────────┴──────────┐             │         
+VERB_VB    AJP_JJ              NOUN_NNS    pt_char_per
+   │         │                    │             │         
+  list     round                trips           .     
+
+                               SIGMA                                  
+             ┌───────────────────┴───────────────────┐                    
+           NP_NN                                    KCD               
+   ┌─────────┴─────────┐                   ┌─────────┴──────────┐         
+NOUN_NN             PREP_IN             NOUN_NNS           pt_char_per
+   │                   │                   │                    │         
+  list               round               trips                  .     
+
+                              SIGMA                                  
+             ┌──────────────────┴───────────────────┐                    
+           NP_NN                                   KCD               
+   ┌─────────┴────────┐                   ┌─────────┴──────────┐         
+NOUN_NN             AJP_JJ             NOUN_NNS           pt_char_per
+   │                  │                   │                    │         
+  list              round               trips                  .     
+
+                                SIGMA                                  
+             ┌────────────────────┴───────────────────┐                    
+           NP_NN                                     KCD               
+   ┌─────────┴─────────┐                    ┌─────────┴──────────┐         
+NOUN_NN             AVPNP_NN             NOUN_NNS           pt_char_per
+   │                   │                    │                    │         
+  list               round                trips                  .     
+
+                             SIGMA                                  
+           ┌───────────────────┴───────────────────┐                    
+         NP_NN                                    KCD               
+  ┌────────┴─────────┐                   ┌─────────┴──────────┐         
+NP_NN             NOUN_NN             NOUN_NNS           pt_char_per
+  │                  │                   │                    │         
+ list              round               trips                  .     
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 6 ) list saturday flights . 
+
+Given sentence is in the language of CFG
+
+                         SIGMA                             
+   ┌───────────────────────┴───────────┐                       
+   │                                  JWS                  
+   │                       ┌───────────┴─────────────┐         
+   │                   RELCL_VBZ                     │     
+   │          ┌────────────┴───────────┐             │         
+NOUN_NN     NP_NP                   VERB_VBZ    pt_char_per
+   │          │                        │             │         
+  list     saturday                 flights          .     
+
+                       SIGMA                                 
+   ┌─────────────────────┴─────────┐                             
+   │                              GXA                        
+   │          ┌────────────────────┴────────┐                    
+   │          │                            GXB               
+   │          │                    ┌────────┴──────────┐         
+VERB_VB     NP_NP                NP_NNS           pt_char_per
+   │          │                    │                   │         
+  list     saturday             flights                .     
+
+                       SIGMA                            
+   ┌─────────────────────┴──────────┐                       
+   │                               JKB                  
+   │                     ┌──────────┴─────────────┐         
+   │                   NP_NNS                     │     
+   │          ┌──────────┴──────────┐             │         
+VERB_VB     NP_NP                NOUN_NNS    pt_char_per
+   │          │                     │             │         
+  list     saturday              flights          .     
+
+                                 SIGMA                                  
+             ┌─────────────────────┴───────────────────┐                    
+           NP_NN                                      KCD               
+   ┌─────────┴──────────┐                    ┌─────────┴──────────┐         
+NOUN_NN             NAPPOS_NP             NOUN_NNS           pt_char_per
+   │                    │                    │                    │         
+  list               saturday             flights                 .     
+
+                              SIGMA                                  
+           ┌────────────────────┴───────────────────┐                    
+         NP_NP                                     KCJ               
+  ┌────────┴─────────┐                    ┌─────────┴──────────┐         
+NP_NN             NOUN_NP              NOUN_NNS           pt_char_per
+  │                  │                    │                    │         
+ list             saturday             flights                 .     
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 7 ) what aircraft is this . 
+
+Given sentence is not in the language of CFG
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 8 ) list these economy fares . 
+
+Given sentence is not in the language of CFG
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 9 ) list these city destinations . 
+
+Given sentence is not in the language of CFG
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
++-------+------------------------------------------------------------------------+-------+------------+
+| S.No. |                             test sentence                              |  CFG  | parse tree |
+|       |                                                                        |       |   counts   |
++=======+========================================================================+=======+============+
+| 1     | prices .                                                               | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 2     | show availability .                                                    | True  | 3          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 3     | show the flights .                                                     | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 4     | milwaukee to detroit .                                                 | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 5     | indianapolis to seattle .                                              | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 6     | list round trips .                                                     | True  | 11         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 7     | list saturday flights .                                                | True  | 5          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 8     | what aircraft is this .                                                | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 9     | list these economy fares .                                             | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 10    | list these city destinations .                                         | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+Total runtime: 1.459 s
+CYK parser runtime: 0.260 s
+Backpointer runtime: 0.001867 s

@@ -1,0 +1,712 @@
+Expected runtime: 20 s
+( 0 ) prices . 
+
+Given sentence is in the language of CFG
+
++---+----------------------------------------------------------+---------------+
+|   |                          prices                          |       .       |
++===+==========================================================+===============+
+|   | 1                                                        | 2             |
++---+----------------------------------------------------------+---------------+
+| 3 | {GCF, KAL, RE, KCJ, JSB, AXJ, DZJ, HYJ, GAP, AJV, AYD,   | {pt_char_per} |
+|   | DRB, DAF, AQP, JIB, JJP, CXR, GIT, BOT, JZY, DAL, HFD,   |               |
+|   | EEI, SIGMA, CXI, JZK, BRR, GJZ, DPF, GIN, KBW, GFD, RY,  |               |
+|   | JIP, HYH, DECL_VBZ, EZX, GYR, NP_NNS, DDI, HFB, GLH,     |               |
+|   | JIR, DPR, GRP, GWH, GDR, JKB, GHT, BJJ, CZT, GOB, BHB,   |               |
+|   | CSP, KDH, UQ, DLW, BQL, GRB, JJD, GNN, KDT, CWW, GJF,    |               |
+|   | GAF, GCR, JJL, BID, GIJ, DZA, DBA, CZZ, SI, GFN, GLZ,    |               |
+|   | KAT, BQH, GUJ, DOE, CRF, EEU, DXT, KAN, BFZ, GSN, GXX,   |               |
+|   | GBN, GBB, HVH, GXB, DON, IQ, ES, GBV, CTK, KCD, GSH}     |               |
++---+----------------------------------------------------------+---------------+
+| 2 | {pt207, NP_NNS, NOUN_NNS, AVPNP_NNS, VP_VBZ, SIGMA,      | .             |
+|   | VERB_VBZ}                                                |               |
++---+----------------------------------------------------------+---------------+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 1 ) show availability . 
+
+Given sentence is in the language of CFG
+
++---+-----------------------------+----------------------------+---------------+
+|   |            show             |        availability        |       .       |
++===+=============================+============================+===============+
+|   | 1                           | 2                          | 3             |
++---+-----------------------------+----------------------------+---------------+
+| 4 | {DDO, GIH, AXQ, GNY, JKA,   | {DDO, GIH, DDC, JKA, BDV,  | {pt_char_per} |
+|   | BDV, GKM, DDC, CYP, DTG,    | DTG, CYP, DRN, JVX, GTF,   |               |
+|   | DRN, GTF, BEG, BGD, GXV,    | GXV, BQP, BRN, GIB, HMN,   |               |
+|   | GTW, AWW, CVX, BQP, DEJ,    | AYT, GQX, DRT, DMR, GHV,   |               |
+|   | BRN, DPN, GIB, AYT, GQX,    | GCT, GNZ, EBU, AWP, GOT,   |               |
+|   | DRT, DMR, GIC, GNJ, GHV,    | AXB, GGF, LP, DBY, OR,     |               |
+|   | GCT, GNZ, DRS, CYJ, EBU,    | HMV, SD, CPY, JIC, DNV,    |               |
+|   | OR, GOT, AWP, LP, GGF, DBY, | JXI, GMP, GPB, GKR, DLT,   |               |
+|   | DRM, DNI, AXB, AYL, GOU,    | CWK, BJF, GEB, HEZ, SIGMA, |               |
+|   | SD, JCV, CPY, DOS, JIC,     | GTX, GFT, DSO, DZG, DNA,   |               |
+|   | DNV, GMP, GPB, KQG, GKR,    | GFL, FFF, GCP, AQX, DOT,   |               |
+|   | DLT, JLA, AVB, CWK, BJF,    | DNJ, GUX, AQT, CFV, GIR,   |               |
+|   | DLS, DBX, GEB, DAR, HEZ,    | JWB, DQY, JXV, AXR, GJD,   |               |
+|   | SIGMA, ATV, GTX, CXC, GFT,  | GUH, CZW, GJX, HOV, GOV,   |               |
+|   | DSO, DZG, DNA, GFL, FFF,    | AWX, GCX, GTP, GOP, GVX,   |               |
+|   | GCP, DOJ, KSE, GGL, AQX,    | GKV, GLF, DFE, BCP, APR,   |               |
+|   | DOT, DNJ, GUX, CFV, AUT,    | CVJ, JIH, BGL, CZN, GWZ,   |               |
+|   | GIR, AQT, JWB, ARQ, DQY,    | DDF, AYP, APN, DEY, DOK,   |               |
+|   | KSH, AXR, GJD, BGW, GUH,    | DXK, EME, DIQ, GDH, BKL,   |               |
+|   | GTN, CZW, GJX, DAX, GNK,    | JYF, GEN, JVI, JVN, EKO,   |               |
+|   | GOV, AXY, AWX, AOP, GCX,    | ALB, DGI, CQN, JJO, EYE,   |               |
+|   | GVX, GTP, GKQ, GOP, AVV,    | CZQ, AXZ, BY, GKN, ARR,    |               |
+|   | GKV, GLF, AWO, BCP, DFE,    | GJJ, BHV, DAU, GIX, HKZ,   |               |
+|   | APR, CVJ, JIH, BGL, DPK,    | DPL, GIL, GBT, JUO, GID,   |               |
+|   | CZN, GWZ, AWT, DDF, AYP,    | JR, BGX, CVP, DBP, JYI,    |               |
+|   | GUW, APN, DEY, DOK, GLW,    | DHJ, CTT, HEX, GDP, GRN,   |               |
+|   | DXK, GOS, AVR, BDU, DQX,    | DRW, GGB, GVH, EDB, JIK,   |               |
+|   | DIQ, JEF, CWZ, GDH, GVG,    | CSY, HOR, CVM, DAC, JXN,   |               |
+|   | BKL, GUQ, HKY, HIV, AOX,    | GSL, EA, BHR, CZH, BEH,    |               |
+|   | DBO, GHJ, GEN, ALB, EKO,    | DPC, CTW, GLX, DRZ, ALN,   |               |
+|   | DGI, CQN, JJO, FXF, EYE,    | GWF, NS, ANF, JXZ, HNH,    |               |
+|   | BY, AVE, CZQ, AXZ, GKN,     | HPB, DFZ, ESZ, GHX, GNL,   |               |
+|   | ARR, GJJ, GUG, DIP, KSL,    | GPV, CVY, AAA, AVF, NP_NN, |               |
+|   | IMPR_VB, FFL, DPB, CXO,     | DBG, DPO, GOR, HPH, GCZ,   |               |
+|   | BHV, DAU, GIX, DPL,         | GJH, GUR, DAI, DXB, ANR,   |               |
+|   | INFCL_VB, DSL, DFY, JJU,    | JVU, RJ, CZK, DPI, JJM,    |               |
+|   | NR, AXA, GIL, IZP, GHP,     | GFB}                       |               |
+|   | FFR, DES, GBT, BHQ, CYG,    |                            |               |
+|   | AVJ, DNU, GKU, GID, JR,     |                            |               |
+|   | DLE, BGK, CXX, BGX, ESY,    |                            |               |
+|   | DBP, CVP, DMZ, JJI, AYO,    |                            |               |
+|   | CYD, DHJ, CTT, IZL, OH,     |                            |               |
+|   | HEX, GOQ, GDP, KPS, BGT,    |                            |               |
+|   | HOQ, GRN, DRW, GGB, GOO,    |                            |               |
+|   | GVH, EDB, HWZ, GGR, JIK,    |                            |               |
+|   | CSY, NN, CVM, DAC, GJR,     |                            |               |
+|   | GSL, EA, BHR, CZH, BEH,     |                            |               |
+|   | DPC, CTW, IEX, HPG, ALN,    |                            |               |
+|   | GLX, DRZ, VP_VB, CYA, GWF,  |                            |               |
+|   | NS, DMQ, ND, FFI, ANF, DFZ, |                            |               |
+|   | GNL, GHX, GPV, CVY, AAA,    |                            |               |
+|   | DGH, GGV, DDN, GLE, JJN,    |                            |               |
+|   | AVF, NP_NN, DBG, FTT, GOR,  |                            |               |
+|   | DAI, AQH, GCZ, GJH, AXN,    |                            |               |
+|   | GUR, DPO, ANR, GGJ, DXB,    |                            |               |
+|   | GNX, RJ, CXU, GMO, DEX,     |                            |               |
+|   | DPI, DXW, CZK, DLN, JJM,    |                            |               |
+|   | GFB, AUX}                   |                            |               |
++---+-----------------------------+----------------------------+---------------+
+| 3 | {AVPNP_NN, KPS, JYA, JXJ,   | {pt_noun_nn, NOUN_NN,      | .             |
+|   | JGT, KSE, FII, FXF, KSH,    | NP_NN, AVPNP_NN, SIGMA}    |               |
+|   | IEX, KSL, FFL, FYZ, VP_VB,  |                            |               |
+|   | HLL, IMX, FYX, INFCL_VB,    |                            |               |
+|   | HLB, IZP, JCV, FFR, IKJ,    |                            |               |
+|   | HGF, NP_NN, KQG, JVK, FTT,  |                            |               |
+|   | FMS, JLA, KIY, JVA, IKB,    |                            |               |
+|   | IZL, JEF, SIGMA, JUR}       |                            |               |
++---+-----------------------------+----------------------------+---------------+
+| 2 | {NOUN_NN, VERB_VB, VP_VB,   | .                          | .             |
+|   | NP_NN, AVPNP_NN, SIGMA,     |                            |               |
+|   | show, INFCL_VB}             |                            |               |
++---+-----------------------------+----------------------------+---------------+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 2 ) show the flights . 
+
+Given sentence is in the language of CFG
+
++---+-------------------+-------------------+------------------+---------------+
+|   |       show        |        the        |     flights      |       .       |
++===+===================+===================+==================+===============+
+|   | 1                 | 2                 | 3                | 4             |
++---+-------------------+-------------------+------------------+---------------+
+| 5 | {CXC, AOX, GHJ,   | {GCF, AJU, RE,    | {GCF, KAL, RE,   | {pt_char_per} |
+|   | DLV, GUI, GGL,    | GCE, JSB, AXJ,    | KCJ, JSB, AXJ,   |               |
+|   | GGR, GLY, BHA,    | DZJ, GAP, AJV,    | DZJ, HYJ, GAP,   |               |
+|   | DOD, KGI, DPE,    | AYD, FSY, DRB,    | AJV, AYD, DRB,   |               |
+|   | JAX, GLG,         | DAF, AQP, JIB,    | DAF, AQP, JIB,   |               |
+|   | IMPR_VB, GTN,     | JJP, GIT, BOT,    | JJP, CXR, GIT,   |               |
+|   | CYJ, CXO, VP_VB,  | DAL, HFD, EEI,    | BOT, JZY, DAL,   |               |
+|   | GOA, DOM, CYA,    | SIGMA, BRR, GJZ,  | HFD, EEI, SIGMA, |               |
+|   | FFI, AYC, GNM,    | DPF, GIN, CSO,    | CXI, JZK, BRR,   |               |
+|   | AOP, BFY, KSI,    | GFD, RY, JIP,     | GJZ, DPF, GIN,   |               |
+|   | JLB, GHP, DPQ,    | FWB, GYR, GFM,    | KBW, GFD, RY,    |               |
+|   | GGV, CYG, GGJ,    | NP_NNS, DDI, HFB, | JIP, HYH,        |               |
+|   | JHQ, FVD, KQH,    | GLH, JIR, DPR,    | DECL_VBZ, EZX,   |               |
+|   | CXX, RD, JJI,     | GRP, GWH, GDR,    | GYR, NP_NNS,     |               |
+|   | BIC, CXU, CYD,    | JKB, BJJ, CZT,    | DDI, HFB, GLH,   |               |
+|   | DXW, RX, DRA,     | GOB, BHB, CSP,    | JIR, DPR, GRP,   |               |
+|   | CWZ, SIGMA}       | UQ, DLW, BQL,     | GWH, GDR, JKB,   |               |
+|   |                   | KRP, JJD, GNN,    | GHT, BJJ, CZT,   |               |
+|   |                   | GJF, GAF, GCR,    | GOB, BHB, CSP,   |               |
+|   |                   | JJL, BID, GIJ,    | KDH, UQ, DLW,    |               |
+|   |                   | DZA, DBA, CZZ,    | BQL, GRB, JJD,   |               |
+|   |                   | SI, GFN, GLZ,     | GNN, KDT, CWW,   |               |
+|   |                   | BQH, GUJ, DOE,    | GJF, GAF, GCR,   |               |
+|   |                   | CRF, EEU, BFZ,    | JJL, BID, GIJ,   |               |
+|   |                   | GSN, GXX, GBN,    | DZA, DBA, CZZ,   |               |
+|   |                   | GBB, GXB, DON,    | SI, GFN, GLZ,    |               |
+|   |                   | GBV, GSH}         | KAT, BQH, GUJ,   |               |
+|   |                   |                   | DOE, CRF, EEU,   |               |
+|   |                   |                   | DXT, KAN, BFZ,   |               |
+|   |                   |                   | GSN, GXX, GBN,   |               |
+|   |                   |                   | GBB, HVH, GXB,   |               |
+|   |                   |                   | DON, IQ, ES,     |               |
+|   |                   |                   | GBV, CTK, KCD,   |               |
+|   |                   |                   | GSH}             |               |
++---+-------------------+-------------------+------------------+---------------+
+| 4 | {KGI, KSI, JAX,   | {KRP, KCM, KJL,   | {pt207, NP_NNS,  | .             |
+|   | JHQ, FVD, KQH,    | NP_NNS, FSY, IQR, | NOUN_NNS,        |               |
+|   | JLB, VP_VB}       | KJI, FWB, SIGMA}  | AVPNP_NNS,       |               |
+|   |                   |                   | VP_VBZ, SIGMA,   |               |
+|   |                   |                   | VERB_VBZ}        |               |
++---+-------------------+-------------------+------------------+---------------+
+| 3 | {GZJ, JWU, GZR,   | {the, ADV_RB,     | .                | .             |
+|   | JVQ, FZT, JKU,    | ADJ_AT, AVP_RB}   |                  |               |
+|   | FSV, VP_VB, KIJ,  |                   |                  |               |
+|   | IZF}              |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 2 | {NOUN_NN,         | .                 | .                | .             |
+|   | VERB_VB, VP_VB,   |                   |                  |               |
+|   | NP_NN, AVPNP_NN,  |                   |                  |               |
+|   | SIGMA, show,      |                   |                  |               |
+|   | INFCL_VB}         |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 3 ) milwaukee to detroit . 
+
+Given sentence is in the language of CFG
+
++---+-------------------+-------------------+------------------+---------------+
+|   |     milwaukee     |        to         |     detroit      |       .       |
++===+===================+===================+==================+===============+
+|   | 1                 | 2                 | 3                | 4             |
++---+-------------------+-------------------+------------------+---------------+
+| 5 | {GUV, DMU, BMH,   | {DWD, CRC, GON,   | {GUV, DMU, BMH,  | {pt_char_per} |
+|   | DWD, EKR, GED,    | WJ, HFV, GYV, LA, | KEQ, DWD, EKR,   |               |
+|   | DCS, GXE, GCV,    | BPF, DVX, JWO,    | GED, GCV, GDT,   |               |
+|   | GDT, GRR, GPF,    | CCD, DYI, EQL,    | GRR, GPF, GXZ,   |               |
+|   | GXZ, IAB, IDA,    | BNB, EZF, AMX,    | IAB, BYD, BCL,   |               |
+|   | BDR, EZE, GGH,    | VA, BDR, CFN,     | IDF, BDR, EBR,   |               |
+|   | DOW, EQX, HNP,    | ATF, GVB, JJH,    | GVZ, AIL, GGH,   |               |
+|   | DHC, DFK, BDN,    | DHP, EQF, CWH,    | DOW, P, EQX,     |               |
+|   | JWG, UA, GMR,     | HOL, CTQ, DWV,    | DBS, HNP, DFK,   |               |
+|   | IDL, IDI, EAA,    | SX, MT, GBL, BRJ, | BDN, JWG, GMR,   |               |
+|   | GLJ, GQR, DEP,    | DJR, ADR, HXT,    | EEL, IDL, ASX,   |               |
+|   | FES, JSC, GHZ,    | MO, YR, BVN, GFO, | GLJ, GQR, DEP,   |               |
+|   | GKB, JKC, HXB,    | GU, BUH, KBQ,     | ARB, JSC, GHZ,   |               |
+|   | GFP, JJE, AWH,    | AKT, EBO, FET,    | KEN, EDE, GKB,   |               |
+|   | CPS, AIK, BKX,    | ATN, GKB, DOZ,    | JKC, HXB, GFP,   |               |
+|   | KBC, JIS, DVO,    | HUN, JKC, BCD,    | JJE, BBN, CPS,   |               |
+|   | GBD, GMB, IDG,    | CQ, DRQ, EYQ,     | AWH, BKX, KFD,   |               |
+|   | GOD, JII, HFF,    | ERM, EBF, ERP,    | KBC, IDJ, BWD,   |               |
+|   | NP_NP, SIGMA,     | GWR, DTA, GYT,    | JIS, DVO, KEO,   |               |
+|   | DJQ}              | JIS, DCH, ARJ,    | GBD, GMB, GOD,   |               |
+|   |                   | AJJ, GBD, GMB,    | GLR, JII, HFF,   |               |
+|   |                   | CQE, JII, BST,    | NP_NP, SIGMA,    |               |
+|   |                   | CGL, HFF, EAQ,    | BMX}             |               |
+|   |                   | UL, NP_NP, GHZ,   |                  |               |
+|   |                   | AS, SIGMA, UB,    |                  |               |
+|   |                   | JIY, BXV, BVV,    |                  |               |
+|   |                   | BFV, BGH, DHY,    |                  |               |
+|   |                   | ENU, BLR, ESB,    |                  |               |
+|   |                   | AIX, BQD, EZU,    |                  |               |
+|   |                   | DNP, BAL, FEB, X, |                  |               |
+|   |                   | GXZ, FW, PB, GMJ, |                  |               |
+|   |                   | DC, BCH, ANN, QZ, |                  |               |
+|   |                   | BPR, CRX, DCT,    |                  |               |
+|   |                   | GGH, KV, BFB,     |                  |               |
+|   |                   | CFR, ALZ, AOD,    |                  |               |
+|   |                   | OW, EVK, DFK,     |                  |               |
+|   |                   | BDJ, ICL, GTB,    |                  |               |
+|   |                   | DHD, AMD, JSC,    |                  |               |
+|   |                   | BDZ, ACS, IED,    |                  |               |
+|   |                   | AWH, JM, IDD,     |                  |               |
+|   |                   | BKX, BMP, EXS,    |                  |               |
+|   |                   | DVO, DVR, ESW,    |                  |               |
+|   |                   | DZS, CCT, GEJ,    |                  |               |
+|   |                   | DMX, GOD, BIP,    |                  |               |
+|   |                   | DXZ, ETI, GQR,    |                  |               |
+|   |                   | ALJ, IDH, BIH,    |                  |               |
+|   |                   | AJN, GUV, GQF,    |                  |               |
+|   |                   | FFO, DMU, BMH,    |                  |               |
+|   |                   | BKP, CPV, EKR,    |                  |               |
+|   |                   | GED, JKL, AIP,    |                  |               |
+|   |                   | FK, DVL, AWL,     |                  |               |
+|   |                   | CSS, GDT, IDB,    |                  |               |
+|   |                   | CGT, EEO, AWD,    |                  |               |
+|   |                   | DYU, GPF, DOQ,    |                  |               |
+|   |                   | BPV, DRH, KQ,     |                  |               |
+|   |                   | DCZ, HUX, AKL,    |                  |               |
+|   |                   | YH, AOH, DOW,     |                  |               |
+|   |                   | ESH, ESK, FZV,    |                  |               |
+|   |                   | GO, XS, BDN, DKM, |                  |               |
+|   |                   | KFG, AAF, GLJ,    |                  |               |
+|   |                   | TR, GMT, DXQ,     |                  |               |
+|   |                   | HWR, DU, MY, IFF, |                  |               |
+|   |                   | KB, BLN, DKV,     |                  |               |
+|   |                   | BRZ, EBX, DWA,    |                  |               |
+|   |                   | DNG, FAG, FQ,     |                  |               |
+|   |                   | BWL, ECP, DSX,    |                  |               |
+|   |                   | BMD, BUL, DFB,    |                  |               |
+|   |                   | GRF, DWP, BHZ,    |                  |               |
+|   |                   | CTH, ERV, DZP,    |                  |               |
+|   |                   | BBV, AIT, CRL,    |                  |               |
+|   |                   | UG, DKS, HND,     |                  |               |
+|   |                   | KEX, GXF, CW,     |                  |               |
+|   |                   | EAB, HMJ, GCV,    |                  |               |
+|   |                   | CBJ, GRR, CHB,    |                  |               |
+|   |                   | GRZ, BUT, PQ,     |                  |               |
+|   |                   | FCO, FBQ, EAH,    |                  |               |
+|   |                   | XD, BPZ, NI, GNB, |                  |               |
+|   |                   | JH, BIX, EWL, VZ, |                  |               |
+|   |                   | DNY, GMR, HVR,    |                  |               |
+|   |                   | HG, ZL, EDZ, DEP, |                  |               |
+|   |                   | BML, ERJ, GYZ,    |                  |               |
+|   |                   | LZ, CSA, FCR,     |                  |               |
+|   |                   | GFP, JJE, BS,     |                  |               |
+|   |                   | CPS, GTL, PL,     |                  |               |
+|   |                   | ASH, DJU, EZO,    |                  |               |
+|   |                   | HFZ, GSV, YM,     |                  |               |
+|   |                   | CUL, EXM, ETL,    |                  |               |
+|   |                   | QU, GVR, HS, BXN, |                  |               |
+|   |                   | GI, HWX}          |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 4 | {FRC, HIZ, KEM,   | {IVZ, KKO, IED,   | {NOUN_NP,        | .             |
+|   | HMB, KBB, KLJ,    | NP_NP, PP_NP,     | AVPNP_NP,        |               |
+|   | FPA, ITZ, KEY,    | FZV, SIGMA, KMY}  | NAPPOS_NP,       |               |
+|   | JEL, NAPPOS_NP,   |                   | detroit, NP_NP,  |               |
+|   | KSP, KSS, HUV,    |                   | SIGMA}           |               |
+|   | IVY, IUL, KLU,    |                   |                  |               |
+|   | IRP, HAF, ISX,    |                   |                  |               |
+|   | ISB, ERY, KNM,    |                   |                  |               |
+|   | NP_NP, SIGMA,     |                   |                  |               |
+|   | KTG}              |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 3 | {KLL, FSS, KKY,   | {PREP_IN, ADV_RB, | .                | .             |
+|   | NP_NP, SIGMA}     | to, AVP_RB}       |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 2 | {NOUN_NP,         | .                 | .                | .             |
+|   | AVPNP_NP,         |                   |                  |               |
+|   | NAPPOS_NP,        |                   |                  |               |
+|   | milwaukee, NP_NP, |                   |                  |               |
+|   | SIGMA}            |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 4 ) indianapolis to seattle . 
+
+Given sentence is in the language of CFG
+
++---+-------------------+-------------------+------------------+---------------+
+|   |   indianapolis    |        to         |     seattle      |       .       |
++===+===================+===================+==================+===============+
+|   | 1                 | 2                 | 3                | 4             |
++---+-------------------+-------------------+------------------+---------------+
+| 5 | {GUV, DMU, BMH,   | {DWD, CRC, GON,   | {GUV, DMU, BMH,  | {pt_char_per} |
+|   | DWD, EKR, GED,    | WJ, HFV, GYV, LA, | KEQ, DWD, EKR,   |               |
+|   | DCS, GXE, GCV,    | BPF, DVX, JWO,    | GED, GCV, GDT,   |               |
+|   | GDT, GRR, GPF,    | CCD, DYI, EQL,    | GRR, GPF, GXZ,   |               |
+|   | GXZ, IAB, IDA,    | BNB, EZF, AMX,    | IAB, BYD, BCL,   |               |
+|   | BDR, EZE, GGH,    | VA, BDR, CFN,     | IDF, BDR, EBR,   |               |
+|   | DOW, EQX, HNP,    | ATF, GVB, JJH,    | GVZ, AIL, GGH,   |               |
+|   | DHC, DFK, BDN,    | DHP, EQF, CWH,    | DOW, P, EQX,     |               |
+|   | JWG, UA, GMR,     | HOL, CTQ, DWV,    | DBS, HNP, DFK,   |               |
+|   | IDL, IDI, EAA,    | SX, MT, GBL, BRJ, | BDN, JWG, GMR,   |               |
+|   | GLJ, GQR, DEP,    | DJR, ADR, HXT,    | EEL, IDL, ASX,   |               |
+|   | FES, JSC, GHZ,    | MO, YR, BVN, GFO, | GLJ, GQR, DEP,   |               |
+|   | GKB, JKC, HXB,    | GU, BUH, KBQ,     | ARB, JSC, GHZ,   |               |
+|   | GFP, JJE, AWH,    | AKT, EBO, FET,    | KEN, EDE, GKB,   |               |
+|   | CPS, AIK, BKX,    | ATN, GKB, DOZ,    | JKC, HXB, GFP,   |               |
+|   | KBC, JIS, DVO,    | HUN, JKC, BCD,    | JJE, BBN, CPS,   |               |
+|   | GBD, GMB, IDG,    | CQ, DRQ, EYQ,     | AWH, BKX, KFD,   |               |
+|   | GOD, JII, HFF,    | ERM, EBF, ERP,    | KBC, IDJ, BWD,   |               |
+|   | NP_NP, SIGMA,     | GWR, DTA, GYT,    | JIS, DVO, KEO,   |               |
+|   | DJQ}              | JIS, DCH, ARJ,    | GBD, GMB, GOD,   |               |
+|   |                   | AJJ, GBD, GMB,    | GLR, JII, HFF,   |               |
+|   |                   | CQE, JII, BST,    | NP_NP, SIGMA,    |               |
+|   |                   | CGL, HFF, EAQ,    | BMX}             |               |
+|   |                   | UL, NP_NP, GHZ,   |                  |               |
+|   |                   | AS, SIGMA, UB,    |                  |               |
+|   |                   | JIY, BXV, BVV,    |                  |               |
+|   |                   | BFV, BGH, DHY,    |                  |               |
+|   |                   | ENU, BLR, ESB,    |                  |               |
+|   |                   | AIX, BQD, EZU,    |                  |               |
+|   |                   | DNP, BAL, FEB, X, |                  |               |
+|   |                   | GXZ, FW, PB, GMJ, |                  |               |
+|   |                   | DC, BCH, ANN, QZ, |                  |               |
+|   |                   | BPR, CRX, DCT,    |                  |               |
+|   |                   | GGH, KV, BFB,     |                  |               |
+|   |                   | CFR, ALZ, AOD,    |                  |               |
+|   |                   | OW, EVK, DFK,     |                  |               |
+|   |                   | BDJ, ICL, GTB,    |                  |               |
+|   |                   | DHD, AMD, JSC,    |                  |               |
+|   |                   | BDZ, ACS, IED,    |                  |               |
+|   |                   | AWH, JM, IDD,     |                  |               |
+|   |                   | BKX, BMP, EXS,    |                  |               |
+|   |                   | DVO, DVR, ESW,    |                  |               |
+|   |                   | DZS, CCT, GEJ,    |                  |               |
+|   |                   | DMX, GOD, BIP,    |                  |               |
+|   |                   | DXZ, ETI, GQR,    |                  |               |
+|   |                   | ALJ, IDH, BIH,    |                  |               |
+|   |                   | AJN, GUV, GQF,    |                  |               |
+|   |                   | FFO, DMU, BMH,    |                  |               |
+|   |                   | BKP, CPV, EKR,    |                  |               |
+|   |                   | GED, JKL, AIP,    |                  |               |
+|   |                   | FK, DVL, AWL,     |                  |               |
+|   |                   | CSS, GDT, IDB,    |                  |               |
+|   |                   | CGT, EEO, AWD,    |                  |               |
+|   |                   | DYU, GPF, DOQ,    |                  |               |
+|   |                   | BPV, DRH, KQ,     |                  |               |
+|   |                   | DCZ, HUX, AKL,    |                  |               |
+|   |                   | YH, AOH, DOW,     |                  |               |
+|   |                   | ESH, ESK, FZV,    |                  |               |
+|   |                   | GO, XS, BDN, DKM, |                  |               |
+|   |                   | KFG, AAF, GLJ,    |                  |               |
+|   |                   | TR, GMT, DXQ,     |                  |               |
+|   |                   | HWR, DU, MY, IFF, |                  |               |
+|   |                   | KB, BLN, DKV,     |                  |               |
+|   |                   | BRZ, EBX, DWA,    |                  |               |
+|   |                   | DNG, FAG, FQ,     |                  |               |
+|   |                   | BWL, ECP, DSX,    |                  |               |
+|   |                   | BMD, BUL, DFB,    |                  |               |
+|   |                   | GRF, DWP, BHZ,    |                  |               |
+|   |                   | CTH, ERV, DZP,    |                  |               |
+|   |                   | BBV, AIT, CRL,    |                  |               |
+|   |                   | UG, DKS, HND,     |                  |               |
+|   |                   | KEX, GXF, CW,     |                  |               |
+|   |                   | EAB, HMJ, GCV,    |                  |               |
+|   |                   | CBJ, GRR, CHB,    |                  |               |
+|   |                   | GRZ, BUT, PQ,     |                  |               |
+|   |                   | FCO, FBQ, EAH,    |                  |               |
+|   |                   | XD, BPZ, NI, GNB, |                  |               |
+|   |                   | JH, BIX, EWL, VZ, |                  |               |
+|   |                   | DNY, GMR, HVR,    |                  |               |
+|   |                   | HG, ZL, EDZ, DEP, |                  |               |
+|   |                   | BML, ERJ, GYZ,    |                  |               |
+|   |                   | LZ, CSA, FCR,     |                  |               |
+|   |                   | GFP, JJE, BS,     |                  |               |
+|   |                   | CPS, GTL, PL,     |                  |               |
+|   |                   | ASH, DJU, EZO,    |                  |               |
+|   |                   | HFZ, GSV, YM,     |                  |               |
+|   |                   | CUL, EXM, ETL,    |                  |               |
+|   |                   | QU, GVR, HS, BXN, |                  |               |
+|   |                   | GI, HWX}          |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 4 | {FRC, HIZ, KEM,   | {IVZ, KKO, IED,   | {seattle,        | .             |
+|   | HMB, KBB, KLJ,    | NP_NP, PP_NP,     | NOUN_NP,         |               |
+|   | FPA, ITZ, KEY,    | FZV, SIGMA, KMY}  | AVPNP_NP,        |               |
+|   | JEL, NAPPOS_NP,   |                   | NAPPOS_NP,       |               |
+|   | KSP, KSS, HUV,    |                   | NP_NP, SIGMA}    |               |
+|   | IVY, IUL, KLU,    |                   |                  |               |
+|   | IRP, HAF, ISX,    |                   |                  |               |
+|   | ISB, ERY, KNM,    |                   |                  |               |
+|   | NP_NP, SIGMA,     |                   |                  |               |
+|   | KTG}              |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 3 | {KLL, FSS, KKY,   | {PREP_IN, ADV_RB, | .                | .             |
+|   | NP_NP, SIGMA}     | to, AVP_RB}       |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 2 | {indianapolis,    | .                 | .                | .             |
+|   | NOUN_NP,          |                   |                  |               |
+|   | AVPNP_NP,         |                   |                  |               |
+|   | NAPPOS_NP, NP_NP, |                   |                  |               |
+|   | SIGMA}            |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 5 ) list round trips . 
+
+Given sentence is in the language of CFG
+
++---+-------------------+-------------------+------------------+---------------+
+|   |       list        |       round       |      trips       |       .       |
++===+===================+===================+==================+===============+
+|   | 1                 | 2                 | 3                | 4             |
++---+-------------------+-------------------+------------------+---------------+
+| 5 | {GCF, DDO, GIH,   | {GCF, GYJ, RE,    | {GCF, KAL, RE,   | {pt_char_per} |
+|   | DDC, JKA, BDV,    | DLV, HYG, GFF,    | KCJ, JSB, AXJ,   |               |
+|   | DTG, CYP, DGE,    | GLY, GUZ, DVI,    | DZJ, HYJ, GAP,   |               |
+|   | DRN, RE, DLV,     | JSB, AXJ, GWP,    | AJV, AYD, DRB,   |               |
+|   | GTF, GXV, HYG,    | DZJ, KGI, DPE,    | DAF, AQP, JIB,   |               |
+|   | GLY, JSB, AXJ,    | GAP, HNZ, AYD,    | JJP, CXR, GIT,   |               |
+|   | DZJ, KGI, GQX,    | ATJ, GOL, DRB,    | BOT, JZY, DAL,   |               |
+|   | DRT, DMR, DPE,    | DAF, AJV, CYJ,    | HFD, EEI, SIGMA, |               |
+|   | GHV, GAP, AJV,    | HXJ, GVP, AQP,    | CXI, JZK, BRR,   |               |
+|   | AYD, GCT, GNZ,    | JIB, JJP, ICD,    | GJZ, DPF, GIN,   |               |
+|   | DRB, DAF, CYJ,    | GIT, CID, BOT,    | KBW, GFD, RY,    |               |
+|   | EBU, AWP, AQP,    | DTV, BQX, EST,    | JIP, HYH,        |               |
+|   | JIB, JJP, GGF,    | DWM, DAL, GKJ,    | DECL_VBZ, EZX,   |               |
+|   | GOT, DBY, AXB,    | HFD, JJG, AFF,    | GYR, NP_NNS,     |               |
+|   | GIT, BOT, SD,     | HVZ, EEI, JTJ,    | DDI, HFB, GLH,   |               |
+|   | CPY, JIC, DNV,    | ECM, SIGMA, CXC,  | JIR, DPR, GRP,   |               |
+|   | GMP, GPB, GKR,    | BRR, GJZ, FDJ,    | GWH, GDR, JKB,   |               |
+|   | DLT, CWK, DAL,    | JIX, DPF, GGL,    | GHT, BJJ, CZT,   |               |
+|   | BJF, HFD, GEB,    | HVF, GIN, BHA,    | GOB, BHB, CSP,   |               |
+|   | EEI, HEZ, ESS,    | KEV, GFD, RY,     | KDH, UQ, DLW,    |               |
+|   | SIGMA, GTX, CXC,  | KFE, GLG, JIP,    | BQL, GRB, JJD,   |               |
+|   | GFT, DSO, BRR,    | DTP, GTN, AYC,    | GNN, KDT, CWW,   |               |
+|   | DZG, EZV, GJZ,    | GYL, GSZ, GYR,    | GJF, GAF, GCR,   |               |
+|   | GFL, DNA, FFF,    | AOP, BFY, NP_NNS, | JJL, BID, GIJ,   |               |
+|   | DPF, GCP, GGL,    | CRU, DDI, BTJ,    | DZA, DBA, CZZ,   |               |
+|   | AQX, DOT, GIN,    | HFB, DYF, GLH,    | SI, GFN, GLZ,    |               |
+|   | BHA, GUX, DNJ,    | JIR, DPR, GRP,    | KAT, BQH, GUJ,   |               |
+|   | GIR, AQT, GFD,    | GWH, BIC, RX, QP, | DOE, CRF, EEU,   |               |
+|   | RY, GLG, DQY,     | GDR, CWZ, BBR,    | DXT, KAN, BFZ,   |               |
+|   | JIP, AXR, GJD,    | JKB, BJJ, AOX,    | GSN, GXX, GBN,   |               |
+|   | GUH, GTN, CZW,    | GHJ, CZT, DOD,    | GBB, HVH, GXB,   |               |
+|   | GJX, GOV, AYC,    | GOB, BHB, EZL,    | DON, IQ, ES,     |               |
+|   | GYL, AWX, GYR,    | EYN, CSP, BNF,    | GBV, CTK, KCD,   |               |
+|   | AOP, BFY, GCX,    | JAX, UQ, GBX,     | GSH}             |               |
+|   | GTP, GOP, NP_NNS, | IMPR_VB, CXO,     |                  |               |
+|   | GKV, GLF, DFE,    | HOX, DLW, DUB,    |                  |               |
+|   | DDI, APR, CVJ,    | BQL, JWS, GNM,    |                  |               |
+|   | HFB, JIH, BGL,    | KBK, KSI, HFX,    |                  |               |
+|   | CZN, GLH, GWZ,    | JLB, GHP, JJD,    |                  |               |
+|   | JIR, DDF, AYP,    | CYG, GNN, EDW,    |                  |               |
+|   | APN, ECL, DPR,    | FBK, GJF, FVD,    |                  |               |
+|   | DEY, DOK, GRP,    | KQH, GAJ, KFR,    |                  |               |
+|   | GWH, BIC, RX,     | DYR, CXX, JJI,    |                  |               |
+|   | GDR, CWZ, GDH,    | HSB, CYD, JWL,    |                  |               |
+|   | JKB, BJJ, AOX,    | GCR, HUD, DRA,    |                  |               |
+|   | GEN, GHJ, CZT,    | GAF, JJL, BID,    |                  |               |
+|   | EKO, DGI,         | DGF, CTJ, IP,     |                  |               |
+|   | DECL_VB, DOD,     | BDF, GIJ, DZA,    |                  |               |
+|   | GOB, BHB, JJO,    | DBA, CZZ, ERD,    |                  |               |
+|   | CSP, CZQ, AXZ,    | CFJ, GUI, SI,     |                  |               |
+|   | GKN, JAX, UQ,     | GTT, BSP, DKJ,    |                  |               |
+|   | HNY, GJJ, DYE,    | GGR, GFN, DSU,    |                  |               |
+|   | IMPR_VB, CXO,     | GLZ, BQH, GBJ,    |                  |               |
+|   | DLW, DAU, GIX,    | VP_VB, GOA, DOM,  |                  |               |
+|   | BQL, JWS, DPL,    | CYA, AQL, GUJ,    |                  |               |
+|   | GNM, ERC, KSI,    | DOE, FFI, CRF,    |                  |               |
+|   | GIL, JLB, GHP,    | EEU, HVG, GAR,    |                  |               |
+|   | JJD, GBT, CYG,    | AKH, DUT, BFZ,    |                  |               |
+|   | GVO, GNN, GJF,    | GSN, DPQ, EZW,    |                  |               |
+|   | HOW, FVD, KQH,    | GGV, GBN, GBB,    |                  |               |
+|   | CXX, BGX, CVP,    | GXX, GGJ, JKK,    |                  |               |
+|   | JJI, HSB, CYD,    | JHQ, RD, DJO,     |                  |               |
+|   | GAF, GCR, DOL,    | GXB, CQZ, CXU,    |                  |               |
+|   | DRA, JJL, BID,    | DON, DXW, GBV,    |                  |               |
+|   | HEX, CTT, DHJ,    | GRX, GSH}         |                  |               |
+|   | GDP, GIJ, IP,     |                   |                  |               |
+|   | DZA, DBA, GRN,    |                   |                  |               |
+|   | DRW, GGB, CZZ,    |                   |                  |               |
+|   | GVH, GUI, SI,     |                   |                  |               |
+|   | GGR, GFN, JIK,    |                   |                  |               |
+|   | CVM, DAC, GLZ,    |                   |                  |               |
+|   | GSL, EA, BHR,     |                   |                  |               |
+|   | BQH, BSO, DPC,    |                   |                  |               |
+|   | CTW, GLX, DRZ,    |                   |                  |               |
+|   | GUJ, VP_VB, GOA,  |                   |                  |               |
+|   | DOM, CYA, GWF,    |                   |                  |               |
+|   | NS, DOE, GKI,     |                   |                  |               |
+|   | FFI, CRF, HVG,    |                   |                  |               |
+|   | EEU, DFZ, GNL,    |                   |                  |               |
+|   | GHX, BFZ, GSN,    |                   |                  |               |
+|   | DPQ, EZW, GGV,    |                   |                  |               |
+|   | GBN, GBB, GXX,    |                   |                  |               |
+|   | AVF, NP_NN, GTS,  |                   |                  |               |
+|   | DBG, DPO, GOR,    |                   |                  |               |
+|   | DAI, GCZ, GJH,    |                   |                  |               |
+|   | GUR, GOK, GGJ,    |                   |                  |               |
+|   | DXB, JHQ, RJ, RD, |                   |                  |               |
+|   | GXB, DON, CXU,    |                   |                  |               |
+|   | CZK, DXW, GBV,    |                   |                  |               |
+|   | JJM, GSH, GFB}    |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 4 | {SIGMA, JLP, HIR, | {FDS, EVW, CNN,   | {pt207, NP_NNS,  | .             |
+|   | HSE, CPJ, EVW,    | KDI, IQF, JZL,    | NOUN_NNS,        |               |
+|   | EVV, CNN, FJA,    | HSX, KCN, KGI,    | AVPNP_NNS,       |               |
+|   | FXI, KDI, JZL,    | JYR, IBN, PP_NNS, | VP_VBZ, SIGMA,   |               |
+|   | IJV, JXM, HHL,    | JAX, IRB, JYM,    | VERB_VBZ}        |               |
+|   | KGI, IBN, HSX,    | IQZ, IBF, VP_VB,  |                  |               |
+|   | JAX, KIP, JUN,    | FOI, KDU, IOT,    |                  |               |
+|   | CNM, IMN, VP_VB,  | HQD, KDE, KAV,    |                  |               |
+|   | FOI, JVE, IJJ,    | KCE, KSI, KAA,    |                  |               |
+|   | IOT, FOH, KAV,    | NP_NNS, JLB,      |                  |               |
+|   | HHF, KCE, HKP,    | RELCL_VBZ, IOF,   |                  |               |
+|   | HPT, KSI, HKD,    | KDC, KCK, KJK,    |                  |               |
+|   | JXY, KAA, NP_NNS, | HQT, KBX, KCX,    |                  |               |
+|   | HPP, JWT, JLB,    | JYL, EXV, KKF,    |                  |               |
+|   | RELCL_VBZ, KCK,   | HZB, HSF, FVD,    |                  |               |
+|   | JYE, NP_NN, IBM,  | JHQ, KQH, IPT,    |                  |               |
+|   | HGJ, KCX, KKF,    | JZR, KAM, EWU,    |                  |               |
+|   | JYH, JHQ, FVD,    | FPS, HTR, SIGMA}  |                  |               |
+|   | KQH, FPR, FPS,    |                   |                  |               |
+|   | HGD, HLN, IKP,    |                   |                  |               |
+|   | EPB, KND, HTQ,    |                   |                  |               |
+|   | FIU, HID, KIV,    |                   |                  |               |
+|   | HTR, JUC, FKQ,    |                   |                  |               |
+|   | HSW, JXD}         |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 3 | {SIGMA, HHR, ILH, | {round, NOUN_NN,  | .                | .             |
+|   | AVPNP_NN, KPS,    | AJP_JJ, ADJ_JJ,   |                  |               |
+|   | JYA, IZT, JXJ,    | PREP_IN, VERB_VB, |                  |               |
+|   | JGT, HGT, KSE,    | VP_VB, NP_NN,     |                  |               |
+|   | FII, FMG, JTV,    | AVPNP_NN, SIGMA,  |                  |               |
+|   | CMT, KPZ, FXF,    | INFCL_VB}         |                  |               |
+|   | FNH, JLS, KSH,    |                   |                  |               |
+|   | HIH, IEX, KSL,    |                   |                  |               |
+|   | FFL, FNB, FYZ,    |                   |                  |               |
+|   | JVH, VP_VB, IZJ,  |                   |                  |               |
+|   | IMD, HLL, FYX,    |                   |                  |               |
+|   | IMX, JED, FIL,    |                   |                  |               |
+|   | INFCL_VB, HHX,    |                   |                  |               |
+|   | KPU, KSG, FZN,    |                   |                  |               |
+|   | HLB, INJ, JCV,    |                   |                  |               |
+|   | IZP, FFR, IKJ,    |                   |                  |               |
+|   | HGF, NP_NN, KQG,  |                   |                  |               |
+|   | JYC, JVK, FTT,    |                   |                  |               |
+|   | HGV, FMS, IEV,    |                   |                  |               |
+|   | JLA, JUZ, KIY,    |                   |                  |               |
+|   | HGL, IZB, JVR,    |                   |                  |               |
+|   | JVA, JXT, IKB,    |                   |                  |               |
+|   | KSK, IZR, IZL,    |                   |                  |               |
+|   | JEF, JUV, JUR,    |                   |                  |               |
+|   | JUE}              |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 2 | {pt217, NOUN_NN,  | .                 | .                | .             |
+|   | VERB_VB, VP_VB,   |                   |                  |               |
+|   | NP_NN, AVPNP_NN,  |                   |                  |               |
+|   | SIGMA, INFCL_VB}  |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 6 ) list saturday flights . 
+
+Given sentence is in the language of CFG
+
++---+-------------------+-------------------+------------------+---------------+
+|   |       list        |     saturday      |     flights      |       .       |
++===+===================+===================+==================+===============+
+|   | 1                 | 2                 | 3                | 4             |
++---+-------------------+-------------------+------------------+---------------+
+| 5 | {GCF, DYZ, DLV,   | {GCF, DYZ, RE,    | {GCF, KAL, RE,   | {pt_char_per} |
+|   | RE, HYG, GLY,     | JSB, AXJ, DZJ,    | KCJ, JSB, AXJ,   |               |
+|   | JSB, AXJ, DZJ,    | GAP, AJV, AYD,    | DZJ, HYJ, GAP,   |               |
+|   | KGI, DPE, GAP,    | DRB, DAF, KNI,    | AJV, AYD, DRB,   |               |
+|   | AJV, AYD, DRB,    | AQP, JIB, JJP,    | DAF, AQP, JIB,   |               |
+|   | DAF, CYJ, KNI,    | GIT, BOT, DAL,    | JJP, CXR, GIT,   |               |
+|   | AQP, JIB, JJP,    | HFD, EEI, SIGMA,  | BOT, JZY, DAL,   |               |
+|   | GIT, BOT, DAL,    | BRR, GJZ, DPF,    | HFD, EEI, SIGMA, |               |
+|   | HFD, EEI, SIGMA,  | GIN, GFD, RY,     | CXI, JZK, BRR,   |               |
+|   | CXC, BRR, GJZ,    | JIP, GYL, GYR,    | GJZ, DPF, GIN,   |               |
+|   | DPF, GGL, GIN,    | NP_NNS, DDI, HFB, | KBW, GFD, RY,    |               |
+|   | BHA, GFD, RY,     | GLH, JIR, DPR,    | JIP, HYH,        |               |
+|   | GLG, JIP, GTN,    | GRP, GWH, GDR,    | DECL_VBZ, EZX,   |               |
+|   | AYC, GYL, GYR,    | JKB, BJJ, GXA,    | GYR, NP_NNS,     |               |
+|   | AOP, BFY, NP_NNS, | CZT, GOB, BHB,    | DDI, HFB, GLH,   |               |
+|   | DDI, HFB, GLH,    | CSP, UQ, DLW,     | JIR, DPR, GRP,   |               |
+|   | JIR, DPR, GRP,    | BQL, JWS, JJD,    | GWH, GDR, JKB,   |               |
+|   | GWH, BIC, RX,     | GNN, GJF, HSB,    | GHT, BJJ, CZT,   |               |
+|   | GDR, CWZ, JKB,    | GAF, GCR, JJL,    | GOB, BHB, CSP,   |               |
+|   | BJJ, GXA, AOX,    | BID, GIJ, DZA,    | KDH, UQ, DLW,    |               |
+|   | GHJ, CZT, DOD,    | DBA, CZZ, SI,     | BQL, GRB, JJD,   |               |
+|   | GOB, BHB, CSP,    | GFN, GLZ, BQH,    | GNN, KDT, CWW,   |               |
+|   | JAX, UQ, IMPR_VB, | GUJ, DOE, CRF,    | GJF, GAF, GCR,   |               |
+|   | CXO, DLW, BQL,    | EEU, DXT, BFZ,    | JJL, BID, GIJ,   |               |
+|   | JWS, GNM, KSI,    | GSN, GXX, GBN,    | DZA, DBA, CZZ,   |               |
+|   | JLB, GHP, JJD,    | GBB, GXB, DON,    | SI, GFN, GLZ,    |               |
+|   | CYG, GNN, GJF,    | ES, GBV, CTK,     | KAT, BQH, GUJ,   |               |
+|   | FVD, KQH, CXX,    | GSH}              | DOE, CRF, EEU,   |               |
+|   | JJI, HSB, CYD,    |                   | DXT, KAN, BFZ,   |               |
+|   | GAF, GCR, DYY,    |                   | GSN, GXX, GBN,   |               |
+|   | DRA, JJL, BID,    |                   | GBB, HVH, GXB,   |               |
+|   | GIJ, IP, DZA,     |                   | DON, IQ, ES,     |               |
+|   | DBA, CZZ, GUI,    |                   | GBV, CTK, KCD,   |               |
+|   | SI, GGR, GFN,     |                   | GSH}             |               |
+|   | GLZ, BQH, GUJ,    |                   |                  |               |
+|   | VP_VB, GOA, DOM,  |                   |                  |               |
+|   | CYA, DOE, FFI,    |                   |                  |               |
+|   | CRF, EEU, HVG,    |                   |                  |               |
+|   | DXT, BFZ, GSN,    |                   |                  |               |
+|   | DPQ, EZW, GGV,    |                   |                  |               |
+|   | GBN, GBB, GXX,    |                   |                  |               |
+|   | NP_NN, GGJ, JHQ,  |                   |                  |               |
+|   | RD, GXB, DON,     |                   |                  |               |
+|   | CXU, ES, DXW,     |                   |                  |               |
+|   | GBV, CTK, GSH}    |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 4 | {KAC, HIR, EVW,   | {KAC, SIGMA, KQU, | {pt207, NP_NNS,  | .             |
+|   | CNN, KKG, KRH,    | NP_NNS,           | NOUN_NNS,        |               |
+|   | FJA, KDI, JZL,    | RELCL_VBZ, KAX,   | AVPNP_NNS,       |               |
+|   | HZT, IJV, HSX,    | IOX, AVPNP_NNS,   | VP_VBZ, SIGMA,   |               |
+|   | HHL, KGI, IBN,    | KKG, KNI, KCZ,    | VERB_VBZ}        |               |
+|   | JAX, JUN, IOX,    | KRH, JZM, HZT}    |                  |               |
+|   | KNI, VP_VB, FOI,  |                   |                  |               |
+|   | JZM, IOT, KQU,    |                   |                  |               |
+|   | KAV, KCE, KSI,    |                   |                  |               |
+|   | KAA, NP_NNS, HPP, |                   |                  |               |
+|   | JLB, RELCL_VBZ,   |                   |                  |               |
+|   | KAX, AVPNP_NNS,   |                   |                  |               |
+|   | KCK, HGJ, KCX,    |                   |                  |               |
+|   | KKF, JHQ, FVD,    |                   |                  |               |
+|   | KQH, FPS, HGD,    |                   |                  |               |
+|   | HLN, KCZ, KIV,    |                   |                  |               |
+|   | HTR, SIGMA}       |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 3 | {HKJ, KQI, JWX,   | {NOUN_NP,         | .                | .             |
+|   | KQD, JCX, FMY,    | AVPNP_NP,         |                  |               |
+|   | JLC, VP_VB, JKT,  | NAPPOS_NP,        |                  |               |
+|   | IMJ, JUW, JXQ,    | saturday, NP_NP,  |                  |               |
+|   | JDN, KIL, NP_NN,  | SIGMA}            |                  |               |
+|   | JTX, IIZ, IKF,    |                   |                  |               |
+|   | FMV, NP_NP, ILJ,  |                   |                  |               |
+|   | SIGMA, JHR}       |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+| 2 | {pt217, NOUN_NN,  | .                 | .                | .             |
+|   | VERB_VB, VP_VB,   |                   |                  |               |
+|   | NP_NN, AVPNP_NN,  |                   |                  |               |
+|   | SIGMA, INFCL_VB}  |                   |                  |               |
++---+-------------------+-------------------+------------------+---------------+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 7 ) what aircraft is this . 
+
+Given sentence is not in the language of CFG
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 8 ) list these economy fares . 
+
+Given sentence is not in the language of CFG
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
+( 9 ) list these city destinations . 
+
+Given sentence is not in the language of CFG
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
+
++-------+------------------------------------------------------------------------+-------+------------+
+| S.No. |                             test sentence                              |  CFG  | parse tree |
+|       |                                                                        |       |   counts   |
++=======+========================================================================+=======+============+
+| 1     | prices .                                                               | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 2     | show availability .                                                    | True  | 3          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 3     | show the flights .                                                     | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 4     | milwaukee to detroit .                                                 | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 5     | indianapolis to seattle .                                              | True  | 2          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 6     | list round trips .                                                     | True  | 11         |
++-------+------------------------------------------------------------------------+-------+------------+
+| 7     | list saturday flights .                                                | True  | 5          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 8     | what aircraft is this .                                                | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 9     | list these economy fares .                                             | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 10    | list these city destinations .                                         | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+Total runtime: 1.267 s
+CYK parser runtime: 0.256 s
+Backpointer runtime: 0.000047 s
