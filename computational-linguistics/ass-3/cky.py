@@ -10,7 +10,7 @@
 Cocke-Kasami-Younger (CKY) algorithm for bottom-up CFG parsing
 Goals:
     > Write CKY algorithm and use it as a recognizer of CFG.
-    > Extend it to a parser by adding backpointers
+    > Extend it to a parser by adding back pointers
     > Get counts of all possible CKY parse trees for each sentence
     that is in the language of CFG
 Functionalities:
@@ -75,8 +75,7 @@ def generate_production(grammar):
 
 def cky_parser(tokens, grammar):
     """This is the main CYK (Cocke–Younger–Kasami algorithm) algorithm. Given a
-    sentence and CNF (Chomsky normal form) grammar, goal is to determine if it
-    belongs to the language of CFG.
+    sentence and CNF (Chomsky normal form) grammar, the goal is to determine if it belongs to the language of CFG.
 
     Args:
         tokens (list): list of tokens of the test sentence
@@ -84,7 +83,7 @@ def cky_parser(tokens, grammar):
 
     Returns:
         list: CYK parsed chart (upper triangular matrix) filled with non-terminal symbols.
-        defaultdict: Dictionary of backpointers that will be used to reconstruct the parsed tree.
+        defaultdict: Dictionary of back pointers that will be used to reconstruct the parsed tree.
                     format: table[i][j]: {Node: [(x_index, y_index, left_child_node),(x_index, y_index, right_child_node)]}
     """
 
@@ -131,12 +130,11 @@ def cky_parser(tokens, grammar):
 
 def cky_recognizer(chart, root, show_chart, show_tree):
     """Simple function that completes the CYK recognizer task. Given the CYK
-    parsed chart, returns True if the given tests sentence is in the language
-    of CFG.
+    parsed chart, returns True if the given test sentence is in the language of CFG.
 
     Args:
         chart (list): CYK parsed chart (upper triangular matrix) filled with non-terminal symbols.
-        root (object): Root or the start sumbol of the given CNF grammar- "SIGMA"- type: nltk.grammar.Nonterminal
+        root (object): Root or the start symbol of the given CNF grammar- "SIGMA"- type: nltk.grammar.Nonterminal
         show_chart (bool): Choice to display all CYK parsed charts. Default: False
         show_tree (bool): Choice to display all CYK parsed trees. Default: False
 
@@ -152,7 +150,7 @@ def cky_recognizer(chart, root, show_chart, show_tree):
                 print("Given sentence is not in the language of CFG\n")
                 return False
         except TypeError:
-            # special case for root-"SIGMA" missing in the root index
+            # special case when chart[0][0] contains only ".". Hence root-"SIGMA" missing in the root index
             print("Given sentence is not in the language of CFG\n")
             return False
     else:
@@ -166,7 +164,7 @@ def cky_recognizer(chart, root, show_chart, show_tree):
 
 
 def print_chart(chart, tokens):
-    """Given the CYK parsed chart and list of toknes, draw all possible CYK
+    """Given the CYK parsed chart and list of tokens, draw all possible CYK
     parsed charts in a formatted manner using Texttable.
 
     Args:
@@ -195,12 +193,12 @@ def print_chart(chart, tokens):
 
 
 def print_parsed_tree(table, tokens, root, show_tree):
-    """Given the backpointer table, print all possible CYK parsed trees (in
-    fancy ASCII art representation) using backpointers and return the total
+    """Given the back pointer table, print all possible CYK parsed trees (in
+    fancy ASCII art representation) using back pointers and return the total
     counts of parse trees.
 
     Args:
-        table (dict): Dictionary of backpointers that will be used to reconstruct the parsed tree.
+        table (dict): Dictionary of back pointers that will be used to reconstruct the parsed tree.
         tokens (list): List of tokens from the test sentence
         root (object): Root or the start sumbol of the given CNF grammar-
                         "SIGMA"- type: nltk.grammar.Nonterminal
@@ -218,16 +216,16 @@ def print_parsed_tree(table, tokens, root, show_tree):
 
 
 def backtrace(table, i, j, root):
-    """Given backpointer table, perform a recursive backtracing to trace back
-    how a tree was contructed using the indices of the children nodes. In short
-    the backpointer table has memory about all left and right child nodes of
+    """Given back pointer table, perform a recursive backtracing to trace back
+    how a tree was constructed using the indices of the children nodes. In short
+    the back pointer table has memory about all left and right child nodes of
     all non-terminal and terminal symbols in CYK chart.
 
     Args:
-        table (dict): Dictionary of backpointers that will be used to reconstruct the parsed tree.
+        table (dict): Dictionary of back pointers that will be used to reconstruct the parsed tree.
         i (int): column index of the root node
         j (int): length of tokens from the test sentence
-        root (object): Root or the start sumbol of the given CNF grammar- "SIGMA"- type: nltk.grammar.Nonterminal
+        root (object): Root or the start symbol of the given CNF grammar- "SIGMA"- type: nltk.grammar.Nonterminal
 
     Returns:
         list: list of all possible CYK parsed tree
