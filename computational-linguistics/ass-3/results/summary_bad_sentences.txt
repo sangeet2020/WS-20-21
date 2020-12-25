@@ -1,0 +1,57 @@
+Expected runtime: 20 s on ATIS dataset
++-------+------------------------------------------------------------------------+-------+------------+
+| S.No. |                             test sentence                              |  CFG  | parse tree |
+|       |                                                                        |       |   counts   |
++=======+========================================================================+=======+============+
+| 1     | If I don’t like something, I’ll stay away from it.                     | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 2     | He realized there had been several deaths on this road, but his        | False | 0          |
+|       | concern rose when he saw the exact number.                             |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 3     | Jason lived his life by the motto, "Anything worth doing is worth      | False | 0          |
+|       | doing poorly.                                                          |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 4     | People keep telling me "orange" but I still prefer "pink".             | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 5     | If my calculator had a history, it would be more embarrassing than my  | False | 0          |
+|       | browser history.                                                       |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 6     | He found rain fascinating yet unpleasant.                              | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 7     | As the years pass by, we all know owners look more and more like their | False | 0          |
+|       | dogs.                                                                  |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 8     | Be careful with that butter knife.                                     | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 9     | Happiness can be found in the depths of chocolate pudding.             | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 10    | She cried diamonds.                                                    | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 11    | It had been sixteen days since the zombies first attacked.             | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 12    | She wanted a pet platypus but ended up getting a duck and a ferret     | False | 0          |
+|       | instead.                                                               |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 13    | She was sad to hear that fireflies are facing extinction due to        | False | 0          |
+|       | artificial light, habitat loss, and pesticides.                        |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 14    | He stepped gingerly onto the bridge knowing that enchantment awaited   | False | 0          |
+|       | on the other side.                                                     |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 15    | He learned the hardest lesson of his life and had the scars, both      | False | 0          |
+|       | physical and mental, to prove it.                                      |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 16    | I am counting my calories, yet I really want dessert.                  | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 17    | Don't step on the broken glass.                                        | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 18    | Please wait outside of the house.                                      | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+| 19    | He went back to the video to see what had been recorded and was        | False | 0          |
+|       | shocked at what he saw.                                                |       |            |
++-------+------------------------------------------------------------------------+-------+------------+
+| 20    | I’m working on a sweet potato farm.                                    | False | 0          |
++-------+------------------------------------------------------------------------+-------+------------+
+Total runtime: 1.645 s
+CYK parser runtime: 0.502 s
+Backpointer runtime: 0.000000 s
