@@ -113,7 +113,7 @@ def cky_parser(tokens, grammar):
                         if key in grammar_dict:
                             for matched_rule in grammar_dict[key]:
                                 chart[n-j][i].add(matched_rule.lhs())
-                                # Backpointers: store childen nodes and locations (x,y indices)
+                                # Backpointers: store children nodes and locations (x,y indices)
                                 l_child = (i, k, key[0])
                                 r_child = (k, j, key[1])
                                 children = (l_child, r_child)
@@ -239,8 +239,10 @@ def backtrace(table, i, j, root):
         for p1, p2 in table[i][j][root]:                # A-> BC. Get left(B) and right(C) child for a non-term symbol(A)
             i, k, B = p1
             ko, j, C = p2
-            for left_tree, right_tree in product(backtrace(table, i, k, B), backtrace(table, ko, j, C)):    # Recursively back trace the left and right child for p1 and p2. 
-                                                                                                            # Continue until a terminal symbol is found
+            left_tree = backtrace(table, i, k, B)
+            right_tree =  backtrace(table, ko, j, C)
+            for left_tree, right_tree in product(left_tree, right_tree):    # Recursively back trace the left and right child for p1 and p2. 
+                                                                            # Continue until a terminal symbol is found
                 trees.append(Tree(root, [left_tree, right_tree]))
 
     # import pdb; pdb.set_trace()
@@ -338,7 +340,7 @@ def parse_arguments():
     """parse arguments."""
 
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("grammar_f", help="path to grammar file")
+    parser.add_argument("grammar_f", help="path to CNF grammar file")
     parser.add_argument("sents_f", help="path test sentences file")
     parser.add_argument("-show_chart", default=False,
                         type=bool, help='display CYK parsed chart')
