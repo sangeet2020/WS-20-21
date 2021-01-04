@@ -195,7 +195,9 @@ def print_chart(chart, tokens):
 def print_parsed_tree(table, tokens, root, show_tree):
     """Given the back pointer table, print all possible CYK parsed trees (in
     fancy ASCII art representation) using back pointers and return the total
-    counts of parse trees.
+    counts of parse trees. This returns counts of parse trees computed in two
+    ways:   (i) extract set of all CYK parse trees using backpointer and get the count of trees.
+            (ii) just using backpointer and does not require computing any parse trees.
 
     Args:
         table (dict): Dictionary of back pointers that will be used to reconstruct the parsed tree.
@@ -204,15 +206,16 @@ def print_parsed_tree(table, tokens, root, show_tree):
                         "SIGMA"- type: nltk.grammar.Nonterminal
         show_tree (bool): Choice to display all CYK parsed trees. Default: False
     Returns:
-        int: Counts of all possible CYK parsed trees
+        tuple: Counts of all possible CYK parsed trees computed in two ways.
     """
-    my_trees = backtrace(table, 0, len(tokens), root)
+    my_trees, simple_counts = backtrace(table, 0, len(tokens), root)
+    
     if show_tree:
         for tree in my_trees:
             tree.pretty_print(unicodelines=True, nodedist=4)
     tree_counts = len(list(my_trees))
 
-    return tree_counts
+    return tree_counts, simple_counts
 
 
 def backtrace(table, i, j, root):
@@ -220,6 +223,8 @@ def backtrace(table, i, j, root):
     how a tree was constructed using the indices of the children nodes. In short
     the back pointer table has memory about all left and right child nodes of
     all non-terminal and terminal symbols in CYK chart.
+    It also counts number of parse trees without computing the parse trees.
+    
 
     Args:
         table (dict): Dictionary of back pointers that will be used to reconstruct the parsed tree.
@@ -228,25 +233,31 @@ def backtrace(table, i, j, root):
         root (object): Root or the start symbol of the given CNF grammar- "SIGMA"- type: nltk.grammar.Nonterminal
 
     Returns:
-        list: list of all possible CYK parsed tree
+        tuple: all possible CYK parsed trees and total counts of CYK parsed trees.
     """
-
+    count = 0
     root = str(root)
     trees = []
     if len(table[i][j][root]) == 1 and isinstance(table[i][j][root][0], str):       # Terminal detected
-        return [(Tree(root, [table[i][j][root][0]]))]
+        return [(Tree(root, [table[i][j][root][0]]))], count
     else:
         for p1, p2 in table[i][j][root]:                # A-> BC. Get left(B) and right(C) child for a non-term symbol(A)
             i, k, B = p1
             ko, j, C = p2
-            left_tree = backtrace(table, i, k, B)
-            right_tree =  backtrace(table, ko, j, C)
+            left_tree, _ = backtrace(table, i, k, B)
+            right_tree, _ =  backtrace(table, ko, j, C)
             for left_tree, right_tree in product(left_tree, right_tree):    # Recursively back trace the left and right child for p1 and p2. 
                                                                             # Continue until a terminal symbol is found
+                ## Here count variable keeps track of the number of parse 
+                # trees by incrementing itself recusively everytime the backpointer is called for a node.
+                # This way, we get the counts of trees just using backpointer and without computing the parsed trees.
+                count += 1
                 trees.append(Tree(root, [left_tree, right_tree]))
 
     # import pdb; pdb.set_trace()
-    return trees
+    
+    return trees, count
+
 
     ############## Small test example ##############
     # grammar = nltk.data.load('small_grammar.cfg')
@@ -284,9 +295,9 @@ def main():
     # References: https://pypi.python.org/pypi/texttable
 
     t = texttable.Texttable()
-    length = [5, 70, 5, 10]
+    length = [5, 70, 5, 10, 15]
     t.set_cols_width(length)
-    rows = [["S.No.", "test sentence", "CFG", "parse tree counts"]]
+    rows = [["S.No.", "test sentence", "CFG", "parse tree counts", "simple parse tree counts (doesn't compute parse trees)"]]
 
     cyk_runtime = 0
     bp_runtime = 0
@@ -304,21 +315,24 @@ def main():
         cyk_runtime += cyk_end - cyk_start
 
         tree_counts = 0
+        tree_counts_simple = 0
         next_row = [str(index+1), str(sentence),
-                    str("False"), str(tree_counts)]
+                    str("False"), str(tree_counts), 
+                    str(tree_counts_simple)]
 
         if cky_recognizer(chart, root, args.show_chart, args.show_tree):
             if args.show_chart:
                 print_chart(chart, tokens)
 
             bp_start = time.time()
-            tree_counts = print_parsed_tree(
+            tree_counts, tree_counts_simple = print_parsed_tree(
                 table, tokens, root, args.show_tree)
             bp_end = time.time()
             bp_runtime = bp_end - bp_start
 
             next_row = [str(index+1), str(sentence),
-                        str("True"), str(tree_counts)]
+                        str("True"), str(tree_counts), 
+                        str(tree_counts_simple)]
 
         if args.show_chart or args.show_tree:
             dash = "-="*40
