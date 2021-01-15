@@ -1,0 +1,227 @@
+\documentclass{article}[a4paper]
+\usepackage[a4paper, left=2.5cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{mathtools}% http://ctan.org/pkg/mathtools
+\usepackage{caption}
+\captionsetup{width=.75\textwidth}
+\usepackage[usestackEOL]{stackengine}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows,positioning,fit}
+\usetikzlibrary{shapes,calc,arrows}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyvrb}
+\usepackage{xparse}
+\usepackage{pmboxdraw}
+\usepackage[utf8]{inputenc}
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\lstdefinestyle{tree}{
+literate=
+{├}{{\smash{\raisebox{-1ex}{\rule{1pt}{\baselineskip}}}\raisebox{0.5ex}{\rule{1ex}{1pt}}}}1 
+{─}{{\raisebox{0.5ex}{\rule{1.5ex}{1pt}}}}1 
+{└}{{\smash{\raisebox{0.5ex}{\rule{1pt}{\dimexpr\baselineskip-1.5ex}}}\raisebox{0.5ex}{\rule{1ex}{1pt}}}}1 
+}
+
+\def\XXX#1{\textcolor{red}{XXX #1}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+
+\title{\textbf{Computational Linguistics} \\
+Assignment 3\\
+Context-free grammars and CKY parsing 
+}
+\author{Sangeet Sagar\\
+            \texttt{sasa00001@stud.uni-saarland.de}
+}
+
+
+\date{\today}
+% \pgfplotsset{compat=1.17}
+\begin{document}
+
+\maketitle
+%#################################################################
+\section{Introduction}
+This assignment implements the CKY algorithm for bottom-up CFG parsing and applies it to the word and the parsing problem of English. Developed in 1960, the CKY algorithm is the most used chart parser for CFGs (context-free grammars) in CNF (Chomsky normal-form). It uses a dynamic programming algorithm to tell whether a string is in the language of grammar.
+
+\section{Description}
+The script has been integrated with multiple functionalities: 
+\begin{itemize}
+    \item For a given test sentence, check if it is in the language of CFG or not. Return \codeword{True} for the same.
+    \item For a given test sentence compute all possible CYK parse trees and CYK chart
+    \item For a given test sentence compute counts of all possible parse trees in two ways:
+    \begin{itemize}
+        \item Using back-pointer extract set of all parse trees and get their total count
+        \item \textbf{Extra-credit} Just using back-pointer, maintain a \codeword{count} variable that increments itself recursively every time the back-pointer is called for a node. This generates all possible counts of CYK parsed trees without actually computing the parse trees.
+    \end{itemize}
+    \item Print a summary table for all test sentences and display if it's in the language of CFG and total counts of all possible trees computed in two ways discussed above.
+    \item Print runtime.
+    
+\end{itemize}
+
+\section{Requirements}
+\begin{enumerate}
+    \item Python: \codeword{3.8.3}
+    \item NLTK: \codeword{3.5}
+    \item Texttable: \codeword{1.6.3}. Install: \codeword{pip install texttable}
+\end{enumerate}
+\section{Project file structure}
+\begin{Verbatim}
+├── atis
+│   ├── atis-grammar-cnf.cfg
+│   ├── atis-grammar-original.cfg
+│   ├── atis-test-sentences.txt
+│   └── other_bad_sentences.txt
+├── cky.py
+├── README.md
+└── results
+    ├── summary_bad_sentences.txt
+    ├── summary_tree_counts.txt
+    ├── ten_sents_cyk_chart.txt
+    └── ten_sents_parsed_trees.txt
+ \end{Verbatim}
+
+\section{Usage}
+\begin{itemize}
+    \item \textbf{Help}: for instructions on how to run the script with appropriate arguments.\\
+        \codeword{python cky.py --help}\\
+        \begin{lstlisting}
+        python cky.py --help
+        usage: cky.py [-h] 
+                    [-show_chart SHOW_CHART] 
+                    [-show_tree SHOW_TREE]
+                    [-show_summary SHOW_SUMMARY]
+                    grammar_f sents_f
+        
+        Cocke-Kasami-Younger (CKY) algorithm for bottom-up CFG parsing 
+        Goals: 
+            > Write CKY algorithm and use it as a recognizer of CFG. 
+            > Extend it to a parser by adding back pointers 
+            > Get counts of all possible CKY parse trees for each 
+            sentence that is in the language of CFG 
+        Functionalities: 
+            > Create CKY chart
+            > Create CKY parsed trees 
+            > Get runtimes
+        
+        positional arguments:
+          grammar_f                 path to grammar file
+          sents_f                   path test sentences file
+        
+        optional arguments:
+          -h, --help                show this help message and exit
+          -show_chart SHOW_CHART    display CYK parsed chart
+          -show_tree SHOW_TREE      display CYK parsed tree
+          -show_summary SHOW_SUMMARY
+        \end{lstlisting}
+
+
+        \item \textbf{Run CYK parser}: Given CNF grammar and set of test sentences, check if these sentences are in the language of grammar and also display counts of all possible CKY parsed tress.\\
+        \codeword{python cky.py atis/atis-grammar-cnf.cfg atis/atis-test-sentences.txt}
+  
+        \item Run and test the parser on some self-made sentences that are ungrammatical (i.e. not in the language of given CFG) \\
+        \codeword{python cky.py atis/atis-grammar-cnf.cfg atis/other_bad_sentences.txt}
+ 
+\end{itemize}
+\section{Runtime}
+\begin{itemize}
+    \item \textbf{Total} runtime: 20.51 s
+    \item \textbf{CYK parser} runtime: 17.76 s
+    \item \textbf{Backpointer} runtime: 0.015 s
+\end{itemize}
+However, if you use optional arguments \codeword{-show_chart} or \codeword{-show_tree}, the total runtime is as follows:
+\begin{itemize}
+    \item Total runtime: \codeword{-show_chart}: 23.67 s
+    \item Total runtime: \codeword{-show_tree}: 285.27 s
+\end{itemize}
+
+\section{Results Contents}
+\begin{itemize}
+    \item \texttt{summary\_tree\_counts.txt}: Summary table of given ATIS test set with 98 sentences. Display if the sentence is in the language of CFG and counts of all possible CYK parse trees.
+    \item \texttt{ten\_sents\_parsed\_trees.txt}: Shows CYK parsed trees of the first 10 sentences from the ATIS test-set
+    \item \texttt{ten\_sents\_cyk\_chart.txt}: Shows CYK chart of first 10 sentences from the ATIS test-set
+    \item \texttt{summary\_bad\_sentences.txt}: (Summary table of some self-made sentences) Shows if the sentences are in the language of CFG and counts of the parse tree for each.
+\end{itemize}
+
+\section{Glimpse of results}
+\begin{itemize}
+    \item CKY tree of the sentence \codeword{show availability .}. \\
+    A total of 3 trees are observed and they are:
+\end{itemize}
+
+\begin{Verbatim}
+( 1 ) show availability .
+
+Given sentence is in the language of CFG
+
+              SIGMA
+   ┌────────────┴───────────┐
+   │                       JWB
+   │            ┌───────────┴──────────┐
+NOUN_NN      AVPNP_NN             pt_char_per
+   │            │                      │
+  show     availability                .
+
+            SIGMA
+  ┌───────────┴───────────┐
+  │                      JXI
+  │           ┌───────────┴──────────┐
+NP_NN      NOUN_NN              pt_char_per
+  │           │                      │
+ show    availability                .
+
+              SIGMA
+   ┌────────────┴───────────┐
+   │                       JKA
+   │            ┌───────────┴──────────┐
+VERB_VB       NP_NN               pt_char_per
+   │            │                      │
+  show     availability                .
+
+\end{Verbatim}
+\begin{itemize}
+    \item Summary table for first 10 sentences.
+\end{itemize}
+\begin{Verbatim}
++-------+-------------------------------------+-------+------------+
+| S.No. |       test sentence                 |  CFG  | parse tree |
+|       |                                     |       |   counts   |
++=======+=====================================+=======+============+
+| 1     | prices .                            | True  | 2          |
++-------+-------------------------------------+-------+------------+
+| 2     | show availability .                 | True  | 3          |
++-------+-------------------------------------+-------+------------+
+| 3     | show the flights .                  | True  | 2          |
++-------+-------------------------------------+-------+------------+
+| 4     | milwaukee to detroit .              | True  | 2          |
++-------+-------------------------------------+-------+------------+
+| 5     | indianapolis to seattle .           | True  | 2          |
++-------+-------------------------------------+-------+------------+
+| 6     | list round trips .                  | True  | 11         |
++-------+-------------------------------------+-------+------------+
+| 7     | list saturday flights .             | True  | 5          |
++-------+-------------------------------------+-------+------------+
+| 8     | what aircraft is this .             | False | 0          |
++-------+-------------------------------------+-------+------------+
+| 9     | list these economy fares .          | False | 0          |
++-------+-------------------------------------+-------+------------+
+| 10    | list these city destinations .      | False | 0          |
++-------+-------------------------------------+-------+------------+
+\end{Verbatim}
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
