@@ -135,7 +135,7 @@ Trained on 100K parallel English <--> French sentences from [Hansard French/Engl
     ```
 
 ## Glimpse of results
-While all alignments (`*.a` files) and alignment-grids (`*.txt` files) can be found in `results`, here is a glimpse of an alignment grid (one-to-one alignment):
+While all alignments (`*.a` files) and alignment-grids (`*.txt` files) can be found in `results`, here is a glimpse of an alignment grid:
 - One-to-one alignment
 ```
   Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
