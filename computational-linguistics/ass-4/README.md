@@ -13,7 +13,7 @@ The alignment extraction has been performed in two ways. Lets discuss them:
 
 - **One-to-many alignment**: We set a threshold score i.e. `alpha` and for every source token, we only take target tokens whose translation probability score is equal or greater than the threshold. This results in a superior performance which has been discussed in further section.
 
-I also had a chance to compare results from IMB model 1 with an off-the-shelf aligner **MGIZA**. Already, having the compiled version for this library, I used it to generate alignments as given in `results/mgiza_out.txt`. These were further processed in an index2index format using the script `read_mgiza_alignmetns.py`, that is accepted by the evaluation script.
+I also had a chance to compare results from IMB model 1 with an off-the-shelf aligner **MGIZA**. Already, having the compiled version for this library, I used it to generate alignments as given in `results/mgiza_out.txt` (trained on entire dataset but has  alignments only for first 1000 sentences). These were further processed in an index2index format using the script `read_mgiza_alignmetns.py`, that is accepted by the evaluation script.
 
 ## Requirements
 The scripts have been tested on:
@@ -110,13 +110,14 @@ Trained on 100K parallel English $\leftrightarrow$ French sentences from [Hansar
     ```
 - Off-the-shelf aligner: **MGIZA**, already having the compiled version of MGIZA, I used it to generate alignments and results  were:
     ```
-    Precision = 0.639601
-    Recall = 0.742604
-    AER = 0.326923
+    Precision = 0.752577
+    Recall = 0.872781
+    AER = 0.207473
     ```
 
 ## Glimpse of results
 While all alignments (`*.a` files) and alignment-grids (`*.txt` files) can be found in `results`, here is a glimpse of an alignment grid (one-to-one alignment):
+- One-to-one alignment
 ```
   Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
   ------------------------------------
@@ -136,6 +137,66 @@ While all alignments (`*.a` files) and alignment-grids (`*.txt` files) can be fo
  |         ( )             ?  ?  ?     | un
  |                         ?  ?  ?     | tel
  |                         ?  ?  ?     | métier
+ |                                 (*) | .
+  ------------------------------------
+   I  n  m  a  s  h  w  w  t  b  t  . 
+      e  e     t  o  h  a  o  e  h    
+      v  t     r  o  o  n        e    
+      e        e  k     t        r    
+      r        e  e     e        e    
+               t  r     d            
+```
+- one-to-many aslignment (with `alpha 0.3`)
+```
+  Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
+  ------------------------------------
+ |(*)                                  | je
+ |    *                                | ne
+ |( )    ?                             | ai
+ |   (*)                               | jamais
+ |      (?)                            | rencontré
+ |         (*)                         | une
+ |                                     | seule
+ |                *          ( )       | prostituée
+ |             ?                       | de
+ |             *                       | rue
+ |                  (*)                | qui
+ |                     (*)             | voulait
+ |                         ?  ?  ?     | exercer
+ |         ( )             ?  ?  ?     | un
+ |                         ?  ?  ?     | tel
+ |                         ?  ?  ?     | métier
+ |                                 (*) | .
+  ------------------------------------
+   I  n  m  a  s  h  w  w  t  b  t  . 
+      e  e     t  o  h  a  o  e  h    
+      v  t     r  o  o  n        e    
+      e        e  k     t        r    
+      r        e  e     e        e    
+               t  r     d            
+
+```
+
+- MGIZA alignment
+```
+  Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
+  ------------------------------------
+ |(*)                                  | je
+ |   (*)                               | ne
+ |      (?)                            | ai
+ |   (*)                               | jamais
+ |      (?)                            | rencontré
+ |         (*)                         | une
+ |               ( )                   | seule
+ |               (*)                   | prostituée
+ |             ?                       | de
+ |             * ( )                   | rue
+ |                  (*)                | qui
+ |                     (*)             | voulait
+ |               ( )       ?  ?  ?     | exercer
+ |                         ? (?) ?     | un
+ |               ( )       ?  ?  ?     | tel
+ |               ( )       ?  ?  ?     | métier
  |                                 (*) | .
   ------------------------------------
    I  n  m  a  s  h  w  w  t  b  t  . 
