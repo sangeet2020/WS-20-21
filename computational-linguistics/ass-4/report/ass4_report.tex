@@ -1,0 +1,230 @@
+\documentclass{article}[a4paper]
+\usepackage[a4paper, left=2.5cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{mathtools}% http://ctan.org/pkg/mathtools
+\usepackage{caption}
+\captionsetup{width=.75\textwidth}
+\usepackage[usestackEOL]{stackengine}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows,positioning,fit}
+\usetikzlibrary{shapes,calc,arrows}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyvrb}
+\usepackage{xparse}
+\usepackage{pmboxdraw}
+\usepackage[utf8]{inputenc}
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\lstdefinestyle{tree}{
+literate=
+{├}{{\smash{\raisebox{-1ex}{\rule{1pt}{\baselineskip}}}\raisebox{0.5ex}{\rule{1ex}{1pt}}}}1 
+{─}{{\raisebox{0.5ex}{\rule{1.5ex}{1pt}}}}1 
+{└}{{\smash{\raisebox{0.5ex}{\rule{1pt}{\dimexpr\baselineskip-1.5ex}}}\raisebox{0.5ex}{\rule{1ex}{1pt}}}}1 
+}
+
+\def\XXX#1{\textcolor{red}{XXX #1}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+
+\title{\textbf{Computational Linguistics} \\
+Assignment 4\\
+Word alignments 
+}
+\author{Sangeet Sagar\\
+            \texttt{sasa00001@stud.uni-saarland.de}
+}
+
+
+\date{\today}
+% \pgfplotsset{compat=1.17}
+\begin{document}
+
+\maketitle
+%#################################################################
+\section{Introduction}
+This assignment implements the IBM Model 1, which is used in statistical machine translation (SMT) to train word alignment model. So IBM models in general are generative models, which break up the translation process into smaller steps and achieve better statistics with simpler models.
+\textbf{IBM Model 1} uses only lexical translation. It ignores any position information (order), resulting in translating multisets of words into multisets of words.
+
+\section{Description}
+The script:
+\begin{itemize}
+    \item \texttt{main.py}: this is the main script that you should be running.
+    \item \texttt{ibm\_model1.py}: IBM Model 1 class file.
+\end{itemize}
+
+The alignment extraction has been performed in two ways. Let's discuss them:
+\begin{itemize}
+    \item \textbf{One-to-one alignment}: For every source (English) token, we only take one target token corresponding to the maximum translation probability score.
+    \item \textbf{One-to-many alignment}: We set a threshold score i.e. \codeword{alpha} and for every source token, we only take target tokens whose translation probability score is equal or greater than the threshold. This results in a superior performance which have been discussed in a further section.
+\end{itemize}
+I also had a chance to compare results from IMB model 1 with an off-the-shelf aligner \textbf{MGIZA}. Already, having the compiled version for this library, I used it to generate alignments as given in \texttt{results\/mgiza\_out.txt}. These were further processed into an index2index format using the script \texttt{read\_mgiza\_alignmetns.py}, that is accepted by the evaluation script.
+
+\section{Requirements}
+The scripts have been tested on:
+\begin{enumerate}
+    \item Python: \codeword{3.8.3}
+    \item Numpy: \codeword{1.19.2}
+    \item tqdm: \codeword{1.6.3}. Install: \codeword{pip install tqdm}
+\end{enumerate}
+
+\section{Project file structure}
+\begin{Verbatim}
+├── ibm_model1.py
+├── main.py
+├── README.md
+├── read_mgiza_alignmetns.py
+└── results
+    ├── grid_alignment_one2many.txt
+    ├── grid_alignment_one2one.txt
+    ├── ibm1_one2many_alpha0.3.a
+    ├── ibm1_one2one.a
+    ├── mgiza.a
+    └── mgiza_out.txt
+ \end{Verbatim}
+
+\section{Usage}
+\begin{itemize}
+    \item \textbf{Help}: for instructions on how to run the script with appropriate arguments.\\
+        \codeword{python main.py --help}\\
+        \begin{lstlisting}[basicstyle=\small]
+        
+    python main.py --help
+    usage: main.py [-h] 
+                    [-epochs EPOCHS] 
+                    [-num_sents NUM_SENTS] 
+                    [-alpha ALPHA] 
+                    [-save_model SAVE_MODEL]
+                    eng_f 
+                    foreign_f 
+                    out_dir
+    
+    Implementation of IBM Model 1, which is used in statistical 
+    machine translation to train an alignment model.
+    
+    positional arguments:
+      eng_f                 path to source (eng) file
+      foreign_f             path to target (foreign) file
+      out_dir               output-dir to save the obtained alignments
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -epochs EPOCHS        number of training epochs for EM
+      -num_sents NUM_SENTS  number of sentences to train from
+      -alpha ALPHA          threshold score of translation probability 
+                            for alignment
+      -save_model SAVE_MODEL save trained model
+        \end{lstlisting}
+
+
+        \item \textbf{Run IBM Model 1}: Given 100K English $\leftrightarrow$ French  parallel sentences, run IBM model 1 and generate one-to-one word alignments\\
+        \codeword{python main.py jhu-mt-hw/hw2/data/hansards.e jhu-mt-hw/hw2/data/hansards.f results/}
+            \begin{itemize}
+                \begin{Verbatim}
+                
+                \end{Verbatim} 
+            \end{itemize}
+  
+        \item Run IBM model 1 and generate \textbf{one-to-many} word alignments. \\
+        \codeword{python main.py jhu-mt-hw/hw2/data/hansards.e jhu-mt-hw/hw2/data/hansards.f results/ -alpha 0.30}
+
+\end{itemize}
+
+\section{Datatset}
+Trained on 100K parallel English $\leftrightarrow$ French sentences from \href{https://catalog.ldc.upenn.edu/LDC95T20}{Hansard French/English dataset}.
+
+\section{Runtime}
+\begin{itemize}
+    \item \textbf{Total} runtime: 1148.180 s
+    \item \textbf{Aligner (IBM model 1)} runtime: 1142.530 s
+    \item \textbf{Alignment extraction} runtime: 0.704 s
+\end{itemize}
+
+\section{Results}
+\begin{itemize}
+    \item \textbf{Baseline}
+        \begin{Verbatim}
+Precision = 0.243110
+Recall = 0.544379
+AER = 0.681684
+        \end{Verbatim}
+    \item \textbf{IBM Model 1}
+        \begin{itemize}
+        \item \textbf{one-to-one alignment}
+            \begin{Verbatim}
+Precision = 0.904762
+Recall = 0.491124
+AER = 0.350365
+            \end{Verbatim}
+        \item \textbf{one-to-many alignment}: \codeword{alpha 0.30}
+            \begin{Verbatim}
+Precision = 0.854103
+Recall = 0.677515
+AER = 0.235382382
+            \end{Verbatim}
+        \end{itemize}
+    \item Off-the-shelf aligner: \textbf{MGIZA}, already having the compiled version of MGIZA, I used it to generate alignments and results  were:
+    \begin{Verbatim}
+Precision = 0.639601
+Recall = 0.742604
+AER = 0.326923
+    \end{Verbatim}
+    
+\end{itemize}
+
+\section{Glimpse of results}
+While all alignments (\codeword{*.a} files) and alignment-grids (\codeword{*.txt} files) can be found in \texttt{results}, here is a glimpse of an alignment grid (one-to-one alignment):
+\\~\\
+\\~\\
+\\~\\
+\\~\\
+\\~\\
+\\~\\
+\\~\\
+\\~\\
+\\~\\
+\begin{verbatim}
+  Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
+  ------------------------------------
+ | *                                   | je
+ |    *                                | ne
+ |       ?                             | ai
+ |   (*)                               | jamais
+ |      (?)                            | rencontré
+ |          *                          | une
+ |                                     | seule
+ |               (*)                   | prostituée
+ |             ?                       | de
+ |             *                       | rue
+ |                   *                 | qui
+ |                      *              | voulait
+ |                         ?  ?  ?     | exercer
+ |         ( )             ?  ?  ?     | un
+ |                         ?  ?  ?     | tel
+ |                         ?  ?  ?     | métier
+ |                                 (*) | .
+  ------------------------------------
+   I  n  m  a  s  h  w  w  t  b  t  . 
+      e  e     t  o  h  a  o  e  h    
+      v  t     r  o  o  n        e    
+      e        e  k     t        r    
+      r        e  e     e        e    
+               t  r     d            
+\end{verbatim}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
