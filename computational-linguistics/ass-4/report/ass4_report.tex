@@ -71,7 +71,7 @@ The alignment extraction has been performed in two ways. Let's discuss them:
     \item \textbf{One-to-one alignment}: For every source (English) token, we only take one target token corresponding to the maximum translation probability score.
     \item \textbf{One-to-many alignment}: We set a threshold score i.e. \codeword{alpha} and for every source token, we only take target tokens whose translation probability score is equal or greater than the threshold. This results in a superior performance which have been discussed in a further section.
 \end{itemize}
-I also had a chance to compare results from IMB model 1 with an off-the-shelf aligner \textbf{MGIZA}. Already, having the compiled version for this library, I used it to generate alignments as given in \texttt{results\/mgiza\_out.txt}. These were further processed into an index2index format using the script \texttt{read\_mgiza\_alignmetns.py}, that is accepted by the evaluation script.
+I also had a chance to compare results from IMB model 1 with an off-the-shelf aligner \textbf{MGIZA}. Already, having the compiled version for this library, I used it to generate alignments as given in \texttt{results\/mgiza\_out.txt} (trained on entire dataset but has  alignments only for first 1000 sentences). These were further processed into an index2index format using the script \texttt{read\_mgiza\_alignmetns.py}, that is accepted by the evaluation script.
 
 \section{Requirements}
 The scripts have been tested on:
@@ -142,6 +142,19 @@ The scripts have been tested on:
         \codeword{python main.py jhu-mt-hw/hw2/data/hansards.e jhu-mt-hw/hw2/data/hansards.f results/ -alpha 0.30}
 
 \end{itemize}
+\section{Evaluation}
+\begin{itemize}
+    \item One-to-one alignment\\
+    \codeword{python jhu-mt-hw/hw2/score-alignments < results/ibm1_one2one.a}
+    \item one-to-many alignment (with \codeword{alpha 0.3})\\
+    \codeword{python jhu-mt-hw/hw2/score-alignments < results/ibm1_one2many_alpha_0.3.a}
+
+    \item MGIZA alignment\\
+   \codeword{python jhu-mt-hw/hw2/score-alignments < results/mgiza.a}
+    
+
+\end{itemize}
+
 
 \section{Datatset}
 Trained on 100K parallel English $\leftrightarrow$ French sentences from \href{https://catalog.ldc.upenn.edu/LDC95T20}{Hansard French/English dataset}.
@@ -178,25 +191,23 @@ AER = 0.235382382
         \end{itemize}
     \item Off-the-shelf aligner: \textbf{MGIZA}, already having the compiled version of MGIZA, I used it to generate alignments and results  were:
     \begin{Verbatim}
-Precision = 0.639601
-Recall = 0.742604
-AER = 0.326923
+Precision = 0.752577
+Recall = 0.872781
+AER = 0.207473
     \end{Verbatim}
     
 \end{itemize}
 
 \section{Glimpse of results}
-While all alignments (\codeword{*.a} files) and alignment-grids (\codeword{*.txt} files) can be found in \texttt{results}, here is a glimpse of an alignment grid (one-to-one alignment):
+While all alignments (\codeword{*.a} files) and alignment-grids (\codeword{*.txt} files) can be found in \texttt{results}, here is a glimpse of an alignment grid:
 \\~\\
 \\~\\
 \\~\\
 \\~\\
 \\~\\
-\\~\\
-\\~\\
-\\~\\
-\\~\\
-\begin{verbatim}
+\begin{itemize}
+    \item One-to-one alignment
+    \begin{Verbatim}
   Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
   ------------------------------------
  | *                                   | je
@@ -223,7 +234,71 @@ While all alignments (\codeword{*.a} files) and alignment-grids (\codeword{*.txt
       e        e  k     t        r    
       r        e  e     e        e    
                t  r     d            
-\end{verbatim}
+
+
+    \end{Verbatim}
+    \item One-to-many alignment (with \codeword{alpha 0.3})
+    \begin{Verbatim}
+  Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
+  ------------------------------------
+ |(*)                                  | je
+ |    *                                | ne
+ |( )    ?                             | ai
+ |   (*)                               | jamais
+ |      (?)                            | rencontré
+ |         (*)                         | une
+ |                                     | seule
+ |                *          ( )       | prostituée
+ |             ?                       | de
+ |             *                       | rue
+ |                  (*)                | qui
+ |                     (*)             | voulait
+ |                         ?  ?  ?     | exercer
+ |         ( )             ?  ?  ?     | un
+ |                         ?  ?  ?     | tel
+ |                         ?  ?  ?     | métier
+ |                                 (*) | .
+  ------------------------------------
+   I  n  m  a  s  h  w  w  t  b  t  . 
+      e  e     t  o  h  a  o  e  h    
+      v  t     r  o  o  n        e    
+      e        e  k     t        r    
+      r        e  e     e        e    
+               t  r     d                 
+
+    \end{Verbatim}
+    \item MGIZA alignment
+    \begin{Verbatim}
+  Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
+  ------------------------------------
+ |(*)                                  | je
+ |   (*)                               | ne
+ |      (?)                            | ai
+ |   (*)                               | jamais
+ |      (?)                            | rencontré
+ |         (*)                         | une
+ |               ( )                   | seule
+ |               (*)                   | prostituée
+ |             ?                       | de
+ |             * ( )                   | rue
+ |                  (*)                | qui
+ |                     (*)             | voulait
+ |               ( )       ?  ?  ?     | exercer
+ |                         ? (?) ?     | un
+ |               ( )       ?  ?  ?     | tel
+ |               ( )       ?  ?  ?     | métier
+ |                                 (*) | .
+  ------------------------------------
+   I  n  m  a  s  h  w  w  t  b  t  . 
+      e  e     t  o  h  a  o  e  h    
+      v  t     r  o  o  n        e    
+      e        e  k     t        r    
+      r        e  e     e        e    
+               t  r     d         
+    \end{Verbatim}
+    
+    
+\end{itemize}
 
 \bibliographystyle{plain}
 \bibliography{references}

@@ -78,9 +78,28 @@ The scripts have been tested on:
     ```
     python main.py jhu-mt-hw/hw2/data/hansards.e jhu-mt-hw/hw2/data/hansards.f results/ -alpha 0.30
     ```
+- Generate MGIZA alignments
+    ```
+    python read_mgiza_alignmetns.py results/mgiza_out.txt results/
+    ```
+## Evaluation
+- One-to-one alignment
+    ```
+    python jhu-mt-hw/hw2/score-alignments < results/ibm1_one2one.a
+    ```
+- one-to-many alignment (with `alpha 0.3`)
+    ```
+    python jhu-mt-hw/hw2/score-alignments < results/ibm1_one2many_alpha_0.3.a
+    ```
+
+- MGIZA alignment
+    ```
+   python jhu-mt-hw/hw2/score-alignments < results/mgiza.a
+    ```
+
 
 ## Datatset
-Trained on 100K parallel English $\leftrightarrow$ French sentences from [Hansard French/English dataset](https://catalog.ldc.upenn.edu/LDC95T20)
+Trained on 100K parallel English <--> French sentences from [Hansard French/English dataset](https://catalog.ldc.upenn.edu/LDC95T20)
 
 ## Runtime
 
@@ -146,7 +165,7 @@ While all alignments (`*.a` files) and alignment-grids (`*.txt` files) can be fo
       r        e  e     e        e    
                t  r     d            
 ```
-- one-to-many aslignment (with `alpha 0.3`)
+- one-to-many alignment (with `alpha 0.3`)
 ```
   Alignment 5  KEY: ( ) = guessed, * = sure, ? = possible
   ------------------------------------
