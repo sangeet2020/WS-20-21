@@ -36,7 +36,6 @@ The scripts have been tested on:
     ├── ibm1_one2one.a
     ├── mgiza.a
     └── mgiza_out.txt
-
 ```
 
 ## Usage
@@ -68,7 +67,6 @@ The scripts have been tested on:
       -alpha ALPHA          threshold score of translation probability 
                             for alignment
       -save_model SAVE_MODEL save trained model
-        \end{lstlisting}
 
     ```
 
@@ -86,7 +84,7 @@ Trained on 100K parallel English $\leftrightarrow$ French sentences from [Hansar
 
 ## Runtime
 
-- Total} runtime: 1148.180 s
+- Total runtime: 1148.180 s
 - Aligner (IBM model 1) runtime: 1142.530 s
 - Alignment extraction runtime: 0.704 s
 
