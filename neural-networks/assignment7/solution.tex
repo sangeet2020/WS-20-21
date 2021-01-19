@@ -1,0 +1,113 @@
+\def\pathToRoot{../../}
+\input{\pathToRoot/headers/uebungsheader.tex}
+
+\def\issolution{}
+
+\begin{document}
+
+% {Sheet number}{headline}{deadline}
+\exercisehead{7}{Regularization}{12.01.2021, 23:59}
+
+\section*{Exercises}
+
+\begin{exercise}[Norm penalty][0.5 + 0.5 + 0.5 = 1.5]
+\end{exercise}
+
+Read \href{https://www.deeplearningbook.org/contents/regularization.html}{Chapter 7} on Regularization from Deep Learning book.
+
+
+\begin{enumerate}
+
+	\item Why do we penalize only weights, but not biases? Explain in your own words.
+	\item Let's consider a case of fitting linear regression to our Titanic dataset from previous exercise: we want to predict the \textit{price of the ticket}. 
+	As the input we use \textit{passenger class} and \textit{age}. As we found out, \textit{age} does not provide much information for our model. 
+	If we apply L2 norm penalty, which weight do we expect to be penalized more? Why? Think about the curvature of the loss function.
+	\item Explain, why L1 norm is used as a feature extraction mechanism. Support your answer with an illustration of the effect of L1 (similar to Figure 7.1). What effect will L1 norm regularization have on the model defined above?
+
+\end{enumerate}
+
+\begin{solution}
+   % write the solution here
+   
+
+\end{solution}
+
+
+\begin{exercise}[Dataset Augmentation][0.5 + 1 + 0.5 + 0.5 = 2.5]
+
+Read \href{https://neptune.ai/blog/data-augmentation-nlp}{this article} by Shahul Es and  about data augmentation in natural language processing. For a fuller picture, you can also have a look at \href{https://amitness.com/2020/05/data-augmentation-for-nlp/}{this article} by Amit Chaudhary. Answer the following questions:
+
+\begin{enumerate}
+
+	\item In computer vision, data augmentation happens on the go, whereas in NLP data is augmented before training.
+	Why is it so? Explain in 3-4 sentences.
+	\item Data augmentation in NLP is very task-specific and should be applied carefully. 
+	Provide an example of a augmentation method \& task pair where data augmentation might harm the model. Justify your answer (2-4 sentences).
+	A list of NLP tasks you can find \href{https://natural-language-understanding.fandom.com/wiki/List_of_natural_language_processing_tasks}{here} (you can also give an example with a task not from this list).
+	\item If we perform K-fold cross-validation, do we augment data before or after splitting the data? Why? Give at least two reasons.
+	\item Does the proportion of augmented data depend on the size of the training dataset? Explain why. Hint: think about the relation between training dataset size and overfitting.        
+
+\end{enumerate}
+
+\end{exercise}
+
+
+\begin{solution}
+   % write the solution here
+   
+
+\end{solution}
+
+
+\begin{exercise}[Bagging and Dropout][1 + 1 + 2 = 4]
+\end{exercise}
+
+
+\begin{enumerate}
+	\item Why can dropout be considered as an approximation to Bagging? Explain in two or
+three sentences.
+	\item Do we apply dropout during the inference? Justify your answer.
+	\item Write a pseudocode for \href{https://cutt.ly/tjfq78f}{inverted dropout} implementation commenting each step.
+
+\end{enumerate}
+
+\begin{solution}
+   % write the solution here
+   
+   
+\end{solution}
+
+
+\begin{exercise}[Adverserial Training in NLP][2]
+
+In the lecture, you were introduced to adverserial training applied in computer vision.
+On the internet, find how adverserial training is applied in NLP.
+Describe \textbf{four} adverserial techniques: give examples and short descriptions (2-3 sentences). Provide the source of your answer.
+
+\end{exercise}
+
+\begin{solution}
+   % write the solution here
+
+  
+\end{solution}
+
+\section*{Submission instructions}
+
+\framebox{
+	\begin{minipage}{\linewidth}
+		The following instructions are mandatory. If you are not following them, tutors can
+		decide to not correct your exercise.
+	\end{minipage}
+}
+
+\begin{itemize}
+    \item You have to submit the solutions of this assignment sheet as a team of 2-3 students.
+    \item  Hand in a \textbf{single} PDF file with your solutions.
+    \item Make sure to write the student Teams ID and the name of each
+    member of your team on your submission.
+    \item Your assignment solution must be uploaded by only \textbf{one} of your team members to the course website.
+    \item If you have any trouble with the submission, contact your tutor \textbf{before} the deadline.
+\end{itemize}
+
+\end{document}

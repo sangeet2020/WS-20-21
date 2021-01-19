@@ -1,0 +1,97 @@
+\def\pathToRoot{../../}
+\input{\pathToRoot/headers/uebungsheader.tex}
+
+ \def\issolution{}
+
+\begin{document}
+
+% {Sheet number}{headline}{deadline}
+\exercisehead{8}{}{19.01.2021, 23:59}
+
+\section*{Instructions}
+
+For a deeper understanding of the material:
+\begin{itemize}
+	\item \href{https://medium.com/@rgylberth}{Posts by Roan Gylberth on medium.com}
+	\item \href{https://arxiv.org/pdf/1206.5533.pdf}{Practical Recommendations for Gradient-Based Training of Deep Architectures, Yoshua Bengio, 2012}
+\end{itemize}
+
+
+\section*{Exercises}
+\begin{exercise}[Possible Problems][1.5 + 2 + 1 = 4.5]
+
+\begin{enumerate}
+
+	\item One of the optimization challenges is \textit{ill-conditioning}. For answering the following questions read \href{https://medium.com/@shaikhz94/understanding-ill-conditioning-in-deep-neural-networks-2396d6fb0098}{this article} (6 min read). Answer the questions in your own words.
+		\begin{itemize}
+			\item Read part \href{https://www.deeplearningbook.org/contents/optimization.html}{8.2.1 Ill-Conditioning} and explain why very small steps increase cost function when the Hessian matrix is ill-conditioned. Start from the equation of the second-order Taylor series expansion of the cost function.
+			\item In practice, how can we spot ill-conditioning?
+			\item What can we do to solve the problem of ill-conditioning?
+		\end{itemize}
+		
+	\item Another challenge discussed in the lecture is the so-called Exploding gradient problem. To be more specific, this problem happens only during the backward pass in training (very deep) Neural Networks. 
+	Assume that you have a 100-layer Feed Forward Neural Network with ReLU activation function as non-linearities. Explain the phenomenon of exploding gradient with the formula of the backward pass.
+How can we avoid the problem of gradient explosion?
+		
+	\item In the lecture you learned that neural networks have a large number of local minima. Are all local minima problematic? Explain in 2-3 sentences. How can you test if your network is stuck in a local minimum (or another critical point which is not global minimum)? For answering this question consult \href{https://www.deeplearningbook.org/contents/optimization.html}{Chapter 8} of Deep Learning book.
+
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+	% write solution here
+\end{solution}
+
+\pagebreak
+\begin{exercise}[Batch Size][1.5 + 0.5 + 1 = 3]
+
+\begin{enumerate}
+
+	\item Discuss pros and cons of (1) stochastic (m=1), (2) batch (m = size of dataset) and (3) minibatch gradient descent (m is the number of points passed at a time).
+	For each point provide one supporting sentence.
+	\item Why is it important to shuffle data before applying minibatch gradient descent?
+	\item When deciding on batch size it is important to think about the technical aspects.
+	Read \href{https://cutt.ly/0jvF1Ww}{this article} (7 min read) about GPU and CPU and discuss the relation between batch size and the choice of processor. \\
+	* Note that when using GPUs, it is common that batch sizes of power of 2 (e.g. 32 or 128) offer better runtime. \href{https://datascience.stackexchange.com/questions/20179/what-is-the-advantage-of-keeping-batch-size-a-power-of-2}{Here} you can read why.
+
+\end{enumerate}
+
+\end{exercise}
+
+
+\begin{solution}
+   % write the solution here
+\end{solution}
+
+\begin{exercise}[SGD with Momentum][2.5]
+Familiarize yourself with the SGD with momentum from the lecture slides (slides 16-20 in Chapter 8) and Deep Learning book and understand how it works. It is known that the cost function of NNs usually has many saddle points (DL
+book chapter 8.2.3). How does SGD with momentum help to alleviate the problem of getting stuck at these saddle points when compared to vanilla SGD (Chapter 8 slide
+15)? Describe a situation in which vanilla SGD will get stuck at one saddle point, while SGD with momentum won’t.
+
+\end{exercise}
+
+\begin{solution}
+	% write the solution here
+\end{solution}
+
+
+\section*{Submission instructions}
+
+\framebox{
+	\begin{minipage}{\linewidth}
+		The following instructions are mandatory. If you are not following them, tutors can
+		decide to not correct your exercise.
+	\end{minipage}
+}
+
+\begin{itemize}
+    \item You have to submit the solutions of this assignment sheet as a team of 2-3 students.
+    \item  Hand in a \textbf{single} PDF file with your solutions.
+    \item Make sure to write the student Teams ID and the name of each
+    member of your team on your submission.
+    \item Your assignment solution must be uploaded by only \textbf{one} of your team members to the course website.
+    \item If you have any trouble with the submission, contact your tutor \textbf{before} the deadline.
+\end{itemize}
+
+\end{document}
