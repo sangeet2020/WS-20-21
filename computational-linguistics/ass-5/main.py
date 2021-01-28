@@ -5,11 +5,11 @@
 # @Date:   2021-01-25 18:39:24
 # @Email:  sasa00001@stud.uni-saarland.de
 # @Organization: Universität des Saarlandes
-# @Last Modified time: 2021-01-28 20:26:01
+# @Last Modified time: 2021-01-29 00:21:15
 
 """
-Implement a Gibbs sampler which resamples a topic for each word in the corpus according
-to the probability distribution in formula [5] (Griffiths & Steyvers 2004)
+Implements a Gibbs sampler which resamples a topic for each word in the corpus according
+to the probability distribution in formula [5] of (Griffiths & Steyvers 2004)
 References:
 - https://www.pnas.org/content/pnas/101/suppl_1/5228.full.pdf?__=
 - https://u.cs.biu.ac.il/~89-680/darling-lda.pdf
@@ -27,6 +27,7 @@ from collections import defaultdict
 
 
 class LDA_Gibbs(object):
+    
     """LDA Gibbs Sampling
 
     Attributes:
@@ -37,7 +38,6 @@ class LDA_Gibbs(object):
         num_top_words   (int)   : number of words to select from each topic
         vocab_id_dict   (dict)  : dictionary mapped with word to its id
         docs            (list)  : nested list of tokenized words represented as int id
-        
     """
     def __init__(self, alpha, beta, num_topics, epochs, num_top_words,
                 vocab_id_dict, docs):
@@ -54,7 +54,6 @@ class LDA_Gibbs(object):
         Then we calculate a word to topic count matrix (self.wt) and
         a document to topic count matrix (self.dt).
         """
-
         start = time.time()
         self.num_words = len(self.vocab_id_dict)
         self.num_docs = len(self.docs)
@@ -91,7 +90,6 @@ class LDA_Gibbs(object):
         Returns:
             [ndarray]: normalized conditional probablity for all topics
         """
-
         prob_z = (self.wt[:, w] + self.beta) / (self.t + (self.num_words * self.beta)) * \
             (self.dt[d, :] + self.alpha) / (self.d[d] + (self.num_topics * self.alpha))
         prob_z /= np.sum(prob_z)
@@ -112,7 +110,6 @@ class LDA_Gibbs(object):
         Returns:
             [list]: list of frequent words for each topic
         """
-
         self.random_initialization()
 
         for epoch in range(self.epochs):
@@ -145,7 +142,6 @@ class LDA_Gibbs(object):
         Returns:
             [list]: frequent words for each topic
         """
-
         self.wt_sorted = (-self.wt).argsort()[:, :self.num_top_words]
 
         self.vocab_id_dict = {v: k for k, v in self.vocab_id_dict.items()}
@@ -165,7 +161,6 @@ class LDA_Gibbs(object):
         Returns:
             list: list of words
         """
-
         return [self.vocab_id_dict[x] for x in idx_list]
 
 
@@ -175,9 +170,8 @@ def data_loader(args):
 
     Returns:
         tuple: a tuple of vocab2id dictornary and nested list of tokenized 
-        (split into words) documents 
-    """
-
+        (split into words) documents
+        """
     start = time.time()
     doc_list = [line.split()
                 for line in open(args.corpus_f)][1:][:args.num_sents]
@@ -233,7 +227,6 @@ def main():
 
 def parse_arguments():
     """ parse arguments """
-
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("corpus_f", help="path to input text corpus file")
     parser.add_argument("out_dir",
@@ -271,3 +264,6 @@ def parse_arguments():
 
 if __name__ == "__main__":
     main()
+
+
+
