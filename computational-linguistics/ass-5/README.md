@@ -1,15 +1,3 @@
----
-author:
-- |
-  Sangeet Sagar\
-  `sasa00001@stud.uni-saarland.de`
-bibliography:
-- references.bib
-title: |
-  **Computational Linguistics**\
-  Assignment 5\
-  Latent Dirichlet Allocation
----
 # Latent Dirichlet Allocation
 Introduction
 ============
