@@ -34,14 +34,27 @@ The scripts have been tested on:
 Project file structure
 ======================
 
-    ├── ass5_report.pdf
-    ├── data
-    │   └── movies-pp.txt
-    ├── main.py
-    ├── README.md
-    └── results
-        ├── topicwise_words.txt
-        └── training.log
+├── data
+├── main.py
+├── README.md
+├── report
+│   └── ass5_report.pdf
+├── results
+│   ├── topicwise_words.txt
+│   └── training.log
+├── results2
+│   ├── run_me.sh
+│   ├── topicwise_words.txt
+│   └── training.log
+├── results3
+│   ├── run_me.sh
+│   ├── topicwise_words.txt
+│   └── training.log
+└── results4
+    ├── run_me.sh
+    ├── topicwise_words.txt
+    └── training.log
+
 
 Usage
 =====
