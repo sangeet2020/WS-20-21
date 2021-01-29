@@ -225,7 +225,7 @@ Results
                 arnold, disaster, stop, armageddon, monster, world, schwarzenegger, team, end
         ```
 
-Results
+References
 =======
 1. William M. Darling. A theoretical and practical implementation tutorial on topic modeling and gibbssampling. 2011.
 
