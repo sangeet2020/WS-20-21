@@ -33,7 +33,7 @@ The scripts have been tested on:
 
 Project file structure
 ======================
-
+```
 ├── data
 ├── main.py
 ├── README.md
@@ -54,7 +54,7 @@ Project file structure
     ├── run_me.sh
     ├── topicwise_words.txt
     └── training.log
-
+```
 
 Usage
 =====
