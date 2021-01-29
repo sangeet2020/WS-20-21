@@ -20,7 +20,7 @@ Description
 The script:
 
 -   `main.py`: this is the main script that implements the gibbs sampler
-    which you should be running.
+    which you should be running. **Extra Credit**: Entire implmentation done in \texttt{numpy} that took about 3.4 hours as total runtime in a machine of 16 G RAM and 12 Cores CPU.
 
 Requirements
 ============
@@ -184,7 +184,7 @@ Results
 
     -   Topic 20: Fictional Character
 
--   Trying out different number of topics and different values of
+-   **Extra Credit**: Trying out different number of topics and different values of
     hyperparameters.
 
     1.  `python main.py data/movies-pp.txt results2/-alpha 0.05 -beta 0.5 -num_topics 30 -num_top_words 20`
