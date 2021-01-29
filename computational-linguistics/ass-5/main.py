@@ -5,7 +5,7 @@
 # @Date:   2021-01-25 18:39:24
 # @Email:  sasa00001@stud.uni-saarland.de
 # @Organization: Universität des Saarlandes
-# @Last Modified time: 2021-01-29 00:21:15
+# @Last Modified time: 2021-01-29 00:46:01
 
 """
 Implements a Gibbs sampler which resamples a topic for each word in the corpus according
@@ -264,6 +264,3 @@ def parse_arguments():
 
 if __name__ == "__main__":
     main()
-
-
-
