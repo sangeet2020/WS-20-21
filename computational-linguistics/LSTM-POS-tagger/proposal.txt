@@ -1,1 +1,6 @@
-LSTM with word embeddings for POS tagging: This will be a sophisticated upgrade of the assignment#2, where we had implemented a HMM-Viterbi based POS tagger which happens to be the most classical way to implement a POS tagger. With LSTM architecture, the performance has been proven to increase significantly. Although this is totally not a new idea, but with this project I aim to compare different word embedding that uses sub-word information or that don't, comparison with traditional methods in regards of training performance/accuracy. The idea is loosely based on the paper: https://arxiv.org/pdf/1510.06168.pdf
+LSTM with word embeddings for POS tagging: 
+This will be a sophisticated upgrade of the assignment#2, where we had implemented a HMM-Viterbi based POS tagger 
+which happens to be the most classical way to implement a POS tagger. With LSTM architecture, the performance has 
+been proven to increase significantly. Although this is totally not a new idea, but with this project I aim to 
+compare different word embedding that uses sub-word information or that don't, comparison with traditional methods 
+in regards of training performance/accuracy. The idea is loosely based on the paper: https://arxiv.org/pdf/1510.06168.pdf
