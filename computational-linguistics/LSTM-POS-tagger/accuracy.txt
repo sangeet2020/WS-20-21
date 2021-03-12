@@ -1,0 +1,15 @@
+==> BiLSTM.log <==
+Accuracy: 99.37 %
+Total runtime: 1446.935 s
+
+==> BiLSTM_subword.log <==
+Accuracy: 99.30 %
+Total runtime: 1468.772 s
+
+==> LSTM.log <==
+Accuracy: 99.14 %
+Total runtime: 1231.244 s
+
+==> LSTM_subword.log <==
+Accuracy: 99.06 %
+Total runtime: 1103.897 s
