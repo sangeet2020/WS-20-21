@@ -5,13 +5,13 @@
 # @Date:   2021-03-08 18:19:28
 # @Email:  sasa00001@stud.uni-saarland.de
 # @Organization: Universität des Saarlandes
-# @Last Modified time: 2021-03-12 05:20:23
+# @Last Modified time: 2021-03-15 23:28:47
 
 
 
 
 """
-<Function of script>
+LSTM based POS tagger
 """
 
 import os
@@ -38,7 +38,7 @@ from keras.models import Sequential
 from keras.layers import Embedding
 from keras.layers import Dense, Input
 from keras.layers import TimeDistributed
-from keras.layers import LSTM, GRU, Bidirectional, SimpleRNN, RNN
+from keras.layers import LSTM, Bidirectional
 from keras.models import Model
 from sklearn.metrics import classification_report
 
@@ -115,19 +115,18 @@ class LSTM_model(object):
                                 output_dim  = EMBEDDING_SIZE,        
                                 input_length = MAX_SEQ_LEN,          
                                 weights = [self.embedding_weights],  
-                                trainable = True                     
+                                trainable = False                     
         ))
         if self.BiLSTM:
             print('-'*20,"Model architecture: Bi-LSTM",'-'*20)
-            path = args.out_dir + "/bilstm_model_arch.png"
-            keras.utils.plot_model(self.lstm_model, path, show_shapes=True)
             self.lstm_model.add(Bidirectional(LSTM(64, return_sequences=True)))
         else:
             print('-'*20,"Model architecture: LSTM",'-'*20)
-            path = args.out_dir + "/lstm_model_arch.png"
-            keras.utils.plot_model(self.lstm_model, path, show_shapes=True)
             self.lstm_model.add(LSTM(64, return_sequences=True))
+            
         self.lstm_model.add(TimeDistributed(Dense(self.target_labs, activation='softmax')))
+        path = args.out_dir + "/model_arch.png"
+        keras.utils.plot_model(self.lstm_model, path, show_shapes=True)
         
 
     def train(self, args):
@@ -152,15 +151,7 @@ class LSTM_model(object):
             self.lstm_model.save(args.out_dir + '/model_LSTM.h5')
             
     def training_report(self, args):
-        # classification report
-        
-        # Y_test_pred = []
-        # for sample in self.Y_test:
-        #     tag_scores = self.lstm_model.predict(sample)
-        #     Y_test_pred.append(np.argmax(tag_scores, 2))
-        # Y_test_pred = np.array(Y_test_pred)
-        # print(classification_report(self.Y_test, Y_test_pred, target_names=self.target_labs))
-        
+                
         # summarize history for accuracy
         plt.plot(self.lstm_training.history['acc'])
         plt.plot(self.lstm_training.history['val_acc'])
@@ -256,8 +247,6 @@ def parse_arguments():
     """ parse arguments """
 
     parser = argparse.ArgumentParser(description=__doc__)
-    # parser.add_argument("train_f", help="path to train corpora")
-    # parser.add_argument("eval_f", help="path to eval file")
     parser.add_argument("out_dir", help="path to save the plots and results")
     parser.add_argument("model_choice",default=None,choices=['LSTM','BiLSTM'], type=str,help='Choice of training architecture')
     parser.add_argument("-subword_info", default=None, type=bool, help='use pre-embeddings with subword information')
